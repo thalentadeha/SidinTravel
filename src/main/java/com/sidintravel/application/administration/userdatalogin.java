@@ -1,5 +1,7 @@
 package com.sidintravel.application.administration;
 
+import org.springframework.expression.ConstructorExecutor;
+
 public class userdatalogin<T, U, V> {
     private final T username;
     private final U password;
@@ -22,4 +24,5 @@ public class userdatalogin<T, U, V> {
     public V getEmail() {
         return this.email;
     }
+
 }
