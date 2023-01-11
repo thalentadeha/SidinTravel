@@ -19,6 +19,11 @@ public class SidinTravelController {
     private data semuadata;
 
     @GetMapping
+    public String wp(Model model) {
+        return "welcomepage";
+    }
+
+    @GetMapping("/login")
     public String logs(Model model) {
         return "login";
     }

@@ -4,6 +4,7 @@
   ],
   "hints": {
     "meta-viewport": "off",
-    "axe/forms": "off"
+    "axe/forms": "off",
+    "axe/text-alternatives": "off"
   }
 }
