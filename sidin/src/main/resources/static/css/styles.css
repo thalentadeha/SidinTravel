@@ -1,0 +1,227 @@
+.kartuSidin{
+    color: black;
+    text-decoration:none; 
+}
+.kartuSidin:hover {
+    color:black; 
+    text-decoration:none; 
+    cursor:pointer;  
+}
+.centerized{
+    text-align: center;
+}
+#tempatCard{
+    margin-top: 3rem;
+}
+.buatbasket{
+    max-width: 80rem;
+    margin: 5rem auto;
+}
+#first_intro{
+    background-image: linear-gradient( rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25) ), url(/image/blur.jpg);
+    background-attachment:fixed;
+    background-repeat:no-repeat;
+    background-position-x: center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+#register_intro{
+    background-image: linear-gradient( rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25) ), url(/image/nature.jpg);
+    background-attachment:fixed;
+    background-repeat:no-repeat;
+    background-position-x: center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+#buttonLogin{
+    margin-left: 23.5rem;
+}
+#buttonRegister{
+    margin-left: 22.5rem;
+}
+.kartuLogin{
+    width: 30rem;
+    height: 25rem;
+    margin-left: 25rem;
+}
+.kartuRegister{
+    width: 30rem;
+    height: 29rem;
+    margin-left: 25rem;
+}
+#logoNav{
+    width: 5rem;
+    height: 2rem;
+}
+#logoHome{
+    width: 30rem;
+    height: 10rem;
+    margin-left: 25rem;
+}
+
+
+
+body{
+	width: 100%;
+	height: 100vh;
+}
+
+.main-container header{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	padding: 20px 200px;
+}
+
+.main-container header nav{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.main-container header nav .logo{
+	width: 150px;
+
+}
+
+.main-container header nav .logo a img{
+	width: 100%;
+	transition: .2s ease;
+}
+
+.main-container header nav .logo a img:hover{
+	transform: scale(1.2);
+}
+
+.main-container header nav .menu{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.main-container header nav .menu ul{
+	list-style-type: none;
+	display: flex;
+}
+
+.main-container header nav .menu ul li{
+	color: #fff;
+	padding: 16px 26px;
+	margin: 0 10px;
+	font-size: 26px;
+	cursor: pointer;
+	transition: .2s ease;
+}
+
+.main-container header nav .menu ul li:hover{
+	background: #fff;
+	color: #000;
+	transition: .2s ease;
+}
+
+.main-container header nav .menu .calltoaction{
+	margin-left: 20px;
+}
+
+.main-container header nav .menu .calltoaction button{
+	border: 1px solid #fff;
+	border-radius: 50px;
+	background: none;
+	padding: 16px 26px;
+	color: #fff;
+	font-size: 18px;
+	cursor: pointer;
+	outline: none;
+	box-shadow: 2px 2px 16px rgba(0,0,0,.5);
+	transition: .5s ease-in-out;
+}
+
+.main-container header nav .menu .calltoaction button:hover{
+	background: #fff;
+	border: none;
+	color: #000;
+	box-shadow: none;
+	transition: .5s ease-in-out;
+}
+
+.container section{
+	width: 100%;
+	height: 100vh;
+	padding: 50px 200px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background: url('/src/main/resources/static/static/image/background_wp.png');
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.container section .right, .container section .left{
+	padding: 50px 0;
+}
+
+.container section .left{
+	display: flex;
+	flex-direction: column;
+}
+
+.container section .left .content{
+	display: flex;
+	flex-direction: column;
+}
+
+.container section .left .content h1{
+	font-size: 60px;
+	color: #fff;
+	letter-spacing: 3px;
+	font-family: sans-serif;
+	text-transform: uppercase;
+	font-weight: bolder;
+}
+
+.container section .left .content h4{
+	color: #fff;
+	font-size: 26px;
+	margin-bottom: 10px;
+	letter-spacing: 5px;
+	font-family: sans-serif;
+	font-weight: bold;
+}
+
+.container section .left .content .para{
+	width: 70%;
+}
+
+.container section .left .content .para p{
+	font-weight: lighter;
+	color: #fff;
+	font-family: sans-serif;
+	letter-spacing: 3px;
+	margin: 30px 0;
+}
+
+.container section .left .content .para button{
+	border: 2x solid #fff;
+	border-radius: 50px;
+	padding: 16px 26px;
+	font-size: 18px;
+	transition: .2s ease;
+	cursor: pointer;
+	outline: none;
+}
+
+.container section .left .content .para button:hover{
+	transform: translateY(-10px);
+	background: transparent;
+	border: 2px solid #fff;
+	color: #fff;
+	transition: .2s ease;
+}
+
+.img{
+	width: 600px;
+}
