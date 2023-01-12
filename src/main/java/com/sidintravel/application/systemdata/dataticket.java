@@ -6,14 +6,16 @@ public class dataticket {
     String maskapai;
     String awal;
     String tujuan;
+    String jam;
     String tanggal;
     double harga;
     NumberFormat numForm = NumberFormat.getCurrencyInstance();
 
-    public dataticket(String maskapai, String awal, String tujuan, String tanggal, double harga) {
+    public dataticket(String maskapai, String awal, String tujuan, String jam, String tanggal, double harga) {
         this.maskapai = maskapai;
         this.awal = awal;
         this.tujuan = tujuan;
+        this.jam = jam;
         this.tanggal = tanggal;
         this.harga = harga;
     }
@@ -36,6 +38,10 @@ public class dataticket {
 
     public String tujuan() {
         return tujuan;
+    }
+
+    public void setJam(String jam) {
+        this.jam = jam;
     }
 
     public void setTujuan(String tujuan) {

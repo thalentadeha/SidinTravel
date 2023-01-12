@@ -19,8 +19,8 @@ public class SidinTravelController {
     private data semuadata;
 
     @GetMapping
-    public String wp(Model model) {
-        return "welcomepage";
+    public String land(Model model) {
+        return "landing";
     }
 
     @GetMapping("/login")
@@ -44,5 +44,10 @@ public class SidinTravelController {
             model.addAttribute("tickets", semuadata.showBis());
         }
         return "ticketview";
+    }
+
+    @GetMapping("/error")
+    public String error(Model model) {
+        return "error";
     }
 }

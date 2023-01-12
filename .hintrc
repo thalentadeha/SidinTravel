@@ -3,8 +3,11 @@
     "development"
   ],
   "hints": {
-    "meta-viewport": "off",
-    "axe/forms": "off",
-    "axe/text-alternatives": "off"
+    "axe/text-alternatives": [
+      "default",
+      {
+        "document-title": "off"
+      }
+    ]
   }
 }
