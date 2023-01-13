@@ -27,7 +27,7 @@
     margin: 5rem auto;
 }
 #first_intro{
-    background-image: linear-gradient( rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25) ), url(/image/blur.jpg);
+    background-image: linear-gradient( rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25) ), url(/image/background_wp.png);
     background-attachment:fixed;
     background-repeat:no-repeat;
     background-position-x: center;
@@ -36,7 +36,7 @@
     height: 100%;
 }
 #register_intro{
-    background-image: linear-gradient( rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25) ), url(/image/nature.jpg);
+    background-image: linear-gradient( rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25) ), url(/image/background_wp.png);
     background-attachment:fixed;
     background-repeat:no-repeat;
     background-position-x: center;
@@ -52,12 +52,12 @@
 }
 .kartuLogin{
     width: 30rem;
-    height: 28rem;
+    height: 37rem;
     margin-left: 25rem;
 }
 .kartuRegister{
     width: 30rem;
-    height: 40rem;
+    height: 37rem;
     margin-left: 25rem;
 }
 #logoNav{

@@ -7,7 +7,9 @@
                 <h4>Email</h4>
                 <input type="email"class="form-control"id="username_form_login"name="email"th:field="*{email}"><br>
                 <h4>Password</h4>
-                <input type="password"class="form-control"id="password_form_login"name="password"th:field="*{password}"><br><br>
+                <input type="password"class="form-control"id="password_form_login"name="password"th:field="*{password}">
+                <h8><a href="/lupa_pass">lupa password</a></h8>
+                <br><br>
                 <button type="submit" class="btn btn-outline-primary"id="buttonLogin">Login</button>
                 <span th:if="${Error != null}">
                   <div class="alert alert-danger" role="alert"th:text="${Error}">
@@ -16,7 +18,7 @@
                 </span>
               </form>
               <br><br>
-              <h5>Belum punya akun daftar yukkzzz <a href="/register">daftar disini</a></h5>
+              <h5>Belum punya akun daftar yukkzzz <br> <a href="/register">daftar disini</a></h5>
             </div>
           </div>
         </div>
