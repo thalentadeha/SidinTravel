@@ -1,0 +1,28 @@
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"layout:decorate="~{layout}">
+    <body id="first_intro">
+        <div layout:fragment="content">
+          <div class="card kartuLogin">
+            <div class="card-body">
+              <form th:object="${userdatalogin}"method="post"th:action="@{/lupa_pass}">
+                <h4>Email</h4>
+                <h6>Silahkan masukan Email yang digunakan saat login</h6>
+                <input type="email"class="form-control"id="username_form_login"name="email"th:field="*{email}"><br>
+                <br><br>
+                <button type="submit" class="btn btn-outline-primary"id="buttonLogin">Check</button>
+                <span th:if="${password != null}">
+                  <div class="alert alert-danger" role="alert" th:text="${password}">
+                    A simple danger alert—check it out!
+                  </div>
+                </span>
+                <span th:unless="${password != null}">
+                    <div class="alert alert-danger" role="alert" th:text="${Error}">
+                      A simple danger alert—check it out!
+                    </div>
+                  </span>
+              </form>
+              <br><br>
+            </div>
+          </div>
+        </div>
+    </body>
+</html>

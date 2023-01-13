@@ -62,7 +62,6 @@ public class SidinTravelController {
         model.addAttribute("currUser", currUser);
         String tempUsername = (String) currUser.getUsername();
         String tempEmail = (String) currUser.getEmail();
-        String tempPassword = (String) currUser.getPassword();
         Boolean checkUsername = dataUser.checkUserAvailability(tempUsername);
         Boolean checkEmail = dataUser.checkEmailAvailability(tempEmail);
         if (checkEmail || checkUsername) {
@@ -70,6 +69,26 @@ public class SidinTravelController {
             return "register";
         }
         return "redirect:/home";
+    }
+
+    @GetMapping("/lupa_pass")
+    public String lupapass(Model model) {
+        model.addAttribute("userdatalogin", new userdatalogin("", "", ""));
+        return "lupa_pass";
+    }
+
+    @PostMapping("/lupa_pass")
+    public String lupapassReg(userdatalogin currUser, Model model) {
+        model.addAttribute("currUser", currUser);
+        String tempEmail = (String) currUser.getEmail();
+        Boolean checkEmail = dataUser.checkEmailAvailability(tempEmail);
+        if (!checkEmail) {
+            model.addAttribute("password", dataUser.getPassword(tempEmail));
+            return "lupa_pass";
+        }
+
+        model.addAttribute("Error", "Email tidak ditemukan");
+        return "lupa_pass";
     }
 
     @GetMapping("viewticket/{param}")

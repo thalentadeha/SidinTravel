@@ -40,6 +40,15 @@ public class userData {
         return false;
     }
 
+    public String getPassword(String email) {
+        for (int i = 0; i < dataUser.size(); i++) {
+            if (dataUser.get(i).getEmail().equals(email)) {
+                return (String) dataUser.get(i).getPassword();
+            }
+        }
+        return null;
+    }
+
     // check untuk user admin
     public boolean check(String email) {
         if (email.equals("123")) {
