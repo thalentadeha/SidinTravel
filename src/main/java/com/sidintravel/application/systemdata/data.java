@@ -16,9 +16,9 @@ public class data {
     };
     private ArrayList<dataTiketpesawat> pesawat = new ArrayList<dataTiketpesawat>(){
         {
-            add(new dataTiketpesawat("Lion Air", "Jakarta", "Balikpapan", "tba", 800000,"Tidak tersedia",30));
-            add(new dataTiketpesawat("Citilink", "Malang", "Jakarta", "tba", 1200000,"Tidak tersedia",30));
-            add(new dataTiketpesawat("Garuda Indonesia", "Jakarta", "Bali", "tba", 2000000,"Tersedia",40));
+            add(new dataTiketpesawat("Lion Air", "Jakarta", "Balikpapan", "tba", 800000,0,0,1));
+            add(new dataTiketpesawat("Citilink", "Malang", "Jakarta", "tba", 1200000,0,30,0));
+            add(new dataTiketpesawat("Garuda Indonesia", "Jakarta", "Bali", "tba", 2000000,1,40,1));
 
         }
     };

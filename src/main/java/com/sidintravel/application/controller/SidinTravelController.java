@@ -80,6 +80,7 @@ public class SidinTravelController {
             model.addAttribute("tickets", dataTiket.showKereta());
         } else if (param.equals("Pesawat")) {
             model.addAttribute("tickets", dataTiket.showPesawat());
+            model.addAttribute("code", '0');
         }
         return "ticketview";
     }

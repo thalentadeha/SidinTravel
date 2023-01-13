@@ -1,23 +1,67 @@
 <html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"layout:decorate="~{layout}">
     <body>
         <div layout:fragment="content">
-            <div k th:each="ticket : ${tickets}">
-            <a href="#">
-                <div class="card-body buatbasket shadow p-3 mb-5 bg-body rounded">
-                    <div class="row">
-                        <div class="col-6">
-                            <h3 class="card-title"id="title"th:text="${ticket.maskapai}"></h3>
-                            <h5 style="margin-bottom:1rem;">Awal: <span th:text="${ticket.awal}"></span></h5>
-                            <h5 style="margin-bottom:1rem;">Tujuan: <span th:text="${ticket.tujuan}"></span></h5>
-                            <h6 style="margin-bottom:1rem;">Tanggal: <span th:text="${ticket.tanggal}"></span></h6>
-                            <h4 style="margin-bottom:1rem;">Harga: <span th:text="${ticket.harga}"></span></h4>
-                        </div>
-                        <div class="col">
-                        </div>
+            <td th:switch="${code}">
+                <div th:case="'0'">
+                    <div k th:each="ticket : ${tickets}">
+                        <a href="#"class="ticketsView">
+                            <div class="card-body buatbasket shadow p-3 mb-5 bg-body rounded">
+                                <div class="row">
+                                    <div class="col">
+                                        <h5 style="margin-bottom:1rem;"><span th:text="${ticket.awal}"></span> ~ <span th:text="${ticket.tujuan}"></span></h5>
+                                        <h6 style="margin-bottom:1rem;">Tanggal: <span th:text="${ticket.tanggal}"></span></h6>
+                                        <div class="row">
+                                            <div class="col">
+                                                <div th:if="${ticket.Baggage != 0}"style="display: inline-block;margin-right:3rem;"> 
+                                                    <img src="/image/luggage.png"class="ukuranIcon">  
+                                                </div>
+                                                <div th:unless="${ticket.Baggage != 0}"style="display: inline-block;margin-right:3rem;"> 
+                                                    <img src="/image/no-bag.png"class="ukuranIcon">  
+                                                </div>
+                                                <div th:if="${ticket.WiFi != 0}"style="display: inline-block;margin-right:3rem;"> 
+                                                    <img src="/image/wifi.png"class="ukuranIcon">  
+                                                </div>
+                                                <div th:unless="${ticket.WiFi != 0}"style="display: inline-block;margin-right:3rem;"> 
+                                                    <img src="/image/no-signal.png"class="ukuranIcon">  
+                                                </div>
+                                                <div th:if="${ticket.Meal != 0}"style="display: inline-block;margin-right:3rem;"> 
+                                                    <img src="/image/dinner.png"class="ukuranIcon"> 
+                                                </div>
+                                                <div th:unless="${ticket.Meal != 0}"style="display: inline-block;margin-right:3rem;"> 
+                                                    <img src="/image/fasting.png"class="ukuranIcon">  
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div th:if="${ticket.Baggage != 0}"style="display: inline-block;margin-right:3rem;"> 
+                                                <h6><span th:text="${ticket.Baggage}"></span>KG</h6>
+                                            </div>
+                                            <div th:unless="${ticket.Baggage == 0}"> 
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                    </div>
+                                    <div class="col">
+                                        <h3 class="card-title"id="title"th:text="${ticket.maskapai}"></h3>
+                                        <h4 style="margin-bottom:1rem;margin-top:4rem;">Harga: Rp.<span th:text="${ticket.harga}"></span></h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
                     </div>
                 </div>
-            </a>
-        </div>
-        </div>
+                </div>
+            <div th:case="'1'">
+                <h1>Kereta brotha</h1>
+            </div>
+            <div th:case="'2'">
+                <h1>Bus brotha</h1>
+            </div>
+            <div th:case="'*'">
+                <h1>YNTKTS</h1>
+            </div>
+        </td>
     </body>
 </html>
