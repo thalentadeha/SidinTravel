@@ -48,7 +48,18 @@ body{
 	display: flex;
 }
 
-.main-container header nav .menu ul li{
+#about_usd{
+    color: white;
+    text-decoration:none; 
+}
+#about_us {
+    color:white; 
+    text-decoration:none; 
+    cursor:pointer;  
+}
+
+.main-container header nav .menu ul li a{
+	text-decoration:none; 
 	color: #fff;
 	padding: 16px 26px;
 	margin: 0 10px;
@@ -57,7 +68,8 @@ body{
 	transition: .2s ease;
 }
 
-.main-container header nav .menu ul li:hover{
+.main-container header nav .menu ul li a:hover{
+	text-decoration:none; 
 	background: #fff;
 	color: #000;
 	transition: .2s ease;
