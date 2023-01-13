@@ -3,7 +3,7 @@ package com.sidintravel.application.administration;
 import java.util.HashMap;
 import java.util.ArrayList;
 
-public class loginsystem {
+public class loginsystem{
     protected String username;
     protected String email;
     protected String password;

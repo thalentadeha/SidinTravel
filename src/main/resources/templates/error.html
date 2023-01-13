@@ -1,11 +1,18 @@
-<!doctype html>
-<html lang="en">
-    <body id="error">
-        <center>
-            <h1>Error occurred</h1>
-            <h2>Please contact website admin</h2>
-            <h3><a href="https://wa.me/+6287704783228">Owner</a></h3>
-            <a href="home">Home</a>
-        </center>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"layout:decorate="~{layout}">
+    <body>
+        <div layout:fragment="content">
+            <div class="container"id="login_contain">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col"id="the_image_part_login">
+                          <img src="{% static 'YourTalent/login.svg' %}"id="login_image">
+                        </div>
+                        <div class="col"id="the_form_part_login">
+                         
+                        </div>
+                    </div>
+                </div>
+        </div>
+        </div>
     </body>
 </html>
