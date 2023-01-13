@@ -13,7 +13,7 @@ public class userData {
     protected String username;
     protected String email;
     protected String password;
-    protected Boolean isLogin;
+    protected Boolean isLogin = false;
 
     // private HashMap<String, String> userpass = new HashMap<>(); // simpen
     // username password
@@ -32,6 +32,7 @@ public class userData {
         for (int i = 0; i < dataUser.size(); i++) {
             if (dataUser.get(i).getEmail().equals(email)) {
                 if (dataUser.get(i).getPassword().equals(password)) {
+                    isLogin = true;
                     return true;
                 }
             }
