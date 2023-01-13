@@ -6,11 +6,11 @@
             <div class="card-body">
               <form th:object="${userdatalogin}"method="post"th:action="@{/register}">
                 <h4>Username</h4>
-                <input type="text"class="form-control"id="username_form_login"name="username" th:field="*{username}*"><br>
+                <input type="text"class="form-control"id="username_form_login"name="username" th:field="*{username}"><br>
                 <h4>Email</h4>
-                <input type="email"class="form-control"id="email_form_login"name="email" th:field="*{email}*"><br>
+                <input type="email"class="form-control"id="email_form_login"name="email" th:field="*{email}"><br>
                 <h4>Password</h4>
-                <input type="password"class="form-control"id="password_form_login"name="password" th:field="*{password}*"><br><br>
+                <input type="password"class="form-control"id="password_form_login"name="password" th:field="*{password}"><br><br>
                 <button type="submit" class="btn btn-outline-primary"id="buttonRegister">Register</button>
                 <span th:if="${Error != null}">
                   <div class="alert alert-danger" role="alert"th:text="${Error}">

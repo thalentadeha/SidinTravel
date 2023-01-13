@@ -53,17 +53,21 @@ public class SidinTravelController {
 
     @GetMapping("/register")
     public String reg(Model model) {
+        model.addAttribute("userdatalogin", new userdatalogin("", "", ""));
         return "register";
     }
 
     @PostMapping("/register")
     public String regPost(userdatalogin currUser, Model model) {
         model.addAttribute("currUser", currUser);
+        String tempUsername = (String) currUser.getUsername();
         String tempEmail = (String) currUser.getEmail();
-        Boolean checkResult = dataUser.checkEmailAvailability(tempEmail);
-        if (checkResult) {
-            model.addAttribute("Error", "Email sudah dipakai");
-            return "login";
+        String tempPassword = (String) currUser.getPassword();
+        Boolean checkUsername = dataUser.checkUserAvailability(tempUsername);
+        Boolean checkEmail = dataUser.checkEmailAvailability(tempEmail);
+        if (checkEmail || checkUsername) {
+            model.addAttribute("Error", "Email atau Username sudah dipakai");
+            return "register";
         }
         return "redirect:/home";
     }
