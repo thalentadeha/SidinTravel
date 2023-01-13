@@ -36,6 +36,13 @@ public class SidinTravelController {
     @PostMapping("/login")
     public String logPost(userdatalogin currUser, Model model) {
         model.addAttribute("currUser", currUser);
+        String tempEmail = (String) currUser.getEmail();
+        String tempPassword = (String) currUser.getPassword();
+        Boolean loginResult = dataUser.check(tempEmail, tempPassword);
+        if(!loginResult){
+            model.addAttribute("Error", "Salah memasukkan email atau password");
+            return "login";
+        }
         return "redirect:/home";
     }
 
@@ -68,7 +75,7 @@ public class SidinTravelController {
 
     @GetMapping("/Sidinerror")
     public String siderror(Model model) {
-        return "register";
+        return "error";
     }
 
 }
