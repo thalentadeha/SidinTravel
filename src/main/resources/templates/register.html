@@ -4,13 +4,20 @@
         <div layout:fragment="content">
           <div class="card kartuRegister">
             <div class="card-body">
-              <h4>Username</h4>
-              <input type="text"class="form-control"id="username_form_login"name="username"><br>
-              <h4>Email</h4>
-              <input type="email"class="form-control"id="email_form_login"name="email"><br>
-              <h4>Password</h4>
-              <input type="password"class="form-control"id="password_form_login"name="password"><br><br>
-              <button type="submit" class="btn btn-outline-primary"id="buttonRegister">Register</button>
+              <form th:object="${userdatalogin}"method="post"th:action="@{/register}">
+                <h4>Username</h4>
+                <input type="text"class="form-control"id="username_form_login"name="username" th:field="*{username}*"><br>
+                <h4>Email</h4>
+                <input type="email"class="form-control"id="email_form_login"name="email" th:field="*{email}*"><br>
+                <h4>Password</h4>
+                <input type="password"class="form-control"id="password_form_login"name="password" th:field="*{password}*"><br><br>
+                <button type="submit" class="btn btn-outline-primary"id="buttonRegister">Register</button>
+                <span th:if="${Error != null}">
+                  <div class="alert alert-danger" role="alert"th:text="${Error}">
+                    A simple danger alert—check it out!
+                  </div>
+                </span>
+              </form>
               <br><br>
               <h5>Sudah punya akun login <a href="/login">aja disini</a></h5>
             </div>

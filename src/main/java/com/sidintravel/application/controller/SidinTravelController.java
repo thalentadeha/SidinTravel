@@ -39,7 +39,7 @@ public class SidinTravelController {
         String tempEmail = (String) currUser.getEmail();
         String tempPassword = (String) currUser.getPassword();
         Boolean loginResult = dataUser.check(tempEmail, tempPassword);
-        if(!loginResult){
+        if (!loginResult) {
             model.addAttribute("Error", "Salah memasukkan email atau password");
             return "login";
         }
@@ -57,8 +57,15 @@ public class SidinTravelController {
     }
 
     @PostMapping("/register")
-    public String regPost(Model model) {
-        return "register";
+    public String regPost(userdatalogin currUser, Model model) {
+        model.addAttribute("currUser", currUser);
+        String tempEmail = (String) currUser.getEmail();
+        Boolean checkResult = dataUser.checkEmailAvailability(tempEmail);
+        if (checkResult) {
+            model.addAttribute("Error", "Email sudah dipakai");
+            return "login";
+        }
+        return "redirect:/home";
     }
 
     @GetMapping("viewticket/{param}")

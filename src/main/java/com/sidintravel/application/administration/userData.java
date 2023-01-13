@@ -41,8 +41,8 @@ public class userData {
     }
 
     // check untuk user admin
-    public boolean check(String username) {
-        if (username.equals("123")) {
+    public boolean check(String email) {
+        if (email.equals("123")) {
             return true;
         }
         return false;
