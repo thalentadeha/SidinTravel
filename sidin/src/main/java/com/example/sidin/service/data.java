@@ -6,36 +6,36 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class data {
-    private ArrayList<userdatalogin> dataUser = new ArrayList<>(){
+    private ArrayList<dataTiketbus> bis = new ArrayList<dataTiketbus>(){
         {
-            add(new userdatalogin("Admin Sidin","Sidinkeren","sidin@gmail.com"));
+            add(new dataTiketbus("Pahala Kencana", "Bandung", "Surabaya", "tba", 200000));
+            add(new dataTiketbus("Lorena", "Jakarta", "Malang", "tba", 300000));
+            add(new dataTiketbus("Harapan Baru", "Yogyakarta", "Jakarta", "tba", 150000));
         }
     };
-    private ArrayList<dataticket> bis = new ArrayList<dataticket>(){
+    private ArrayList<dataTiketpesawat> pesawat = new ArrayList<dataTiketpesawat>(){
         {
-            add(new dataticket("Pahala Kencana", "Bandung", "Surabaya", "tba", 200000));
-            add(new dataticket("Lorena", "Jakarta", "Malang", "tba", 300000));
-            add(new dataticket("Harapan Baru", "Yogyakarta", "Jakarta", "tba", 150000));
-        }
-    };
-    private ArrayList<dataticket> pesawat = new ArrayList<dataticket>(){
-        {
-            add(new dataticket("Lion Air", "Jakarta", "Balikpapan", "tba", 800000));
-            add(new dataticket("Citilink", "Malang", "Jakarta", "tba", 1200000));
-            add(new dataticket("Garuda Indonesia", "Jakarta", "Bali", "tba", 2000000));
+            add(new dataTiketpesawat("Lion Air", "Jakarta", "Balikpapan", "tba", 800000,"Tidak tersedia",30));
+            add(new dataTiketpesawat("Citilink", "Malang", "Jakarta", "tba", 1200000,"Tidak tersedia",30));
+            add(new dataTiketpesawat("Garuda Indonesia", "Jakarta", "Bali", "tba", 2000000,"Tersedia",40));
 
         }
     };
-    private ArrayList<dataticket> kereta = new ArrayList<dataticket>(){
+    private ArrayList<dataTiketkereta> kereta = new ArrayList<dataTiketkereta>(){
         {
-            add(new dataticket("Kertanegara", "Malang", "Yogyakarta", "tba", 410000));
-            add(new dataticket("Argo Lawu", "Solo Balapan", "Gambir", "tba", 600000));
-            add(new dataticket("Argo Wilis", "Bandung", "Surabaya", "tba", 540000));
+            add(new dataTiketkereta("Kertanegara", "Malang", "Yogyakarta", "tba", 410000));
+            add(new dataTiketkereta("Argo Lawu", "Solo Balapan", "Gambir", "tba", 600000));
+            add(new dataTiketkereta("Argo Wilis", "Bandung", "Surabaya", "tba", 540000));
         }
     };
-
-    public List<dataticket> showBis(){
+    public List<dataTiketbus> showBis(){
         return bis;
     }
-
+    public List<dataTiketkereta> showKereta(){
+        return kereta;
+    }
+    public List<dataTiketpesawat> showPesawat(){
+        return pesawat;
+    }
+    
 }

@@ -8,7 +8,7 @@ public class dataticket {
      String tujuan;
      String tanggal;
      double harga;
-    NumberFormat numForm = NumberFormat.getCurrencyInstance();
+    // NumberFormat numForm = NumberFormat.getCurrencyInstance();
 
     public dataticket(String maskapai, String awal, String tujuan, String tanggal, double harga) {
         this.maskapai = maskapai;
@@ -58,7 +58,7 @@ public class dataticket {
         this.harga = harga;
     }
 
-    public String toString() {
-        return maskapai + " " + awal + " " + tujuan + " " + tanggal + " " + numForm.format(harga);
-    }
+    // public String toString() {
+    //     return maskapai + " " + awal + " " + tujuan + " " + tanggal + " " + numForm.format(harga);
+    // }
 }

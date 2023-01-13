@@ -1,10 +1,9 @@
-package com.example.sidin.service;
+package com.example.sidin.administration;
 
 public class userdatalogin<T, U, V> {
     private final T username;
     private final U password;
     private final V email;
-
     public userdatalogin(T username, U password, V email) {
         this.username = username;
         this.password = password;

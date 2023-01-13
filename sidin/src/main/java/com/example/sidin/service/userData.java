@@ -1,12 +1,19 @@
 package com.example.sidin.service;
 
 import java.util.HashMap;
-import java.util.ArrayList;
 
-public class loginsystem {
+import com.example.sidin.administration.userdatalogin;
+
+import java.util.ArrayList;
+import org.springframework.ui.Model;
+import org.springframework.stereotype.Service;
+
+@Service
+public class userData {
     protected String username;
     protected String email;
     protected String password;
+    protected Boolean isLogin;
 
     // private HashMap<String, String> userpass = new HashMap<>(); // simpen
     // username password
@@ -14,16 +21,14 @@ public class loginsystem {
     // username email
 
     // simpen username, email, password
-    private ArrayList<userdatalogin> dataUser = new ArrayList<>();
-
-    public loginsystem() {
-
-    }
-
+    private ArrayList<userdatalogin> dataUser = new ArrayList<>(){
+        {
+            add(new userdatalogin("Rahman","1234qwerty","rahman@gmail.com"));
+        }
+    };
     // check untuk user biasa
     public boolean check(String email, String password) {
         for (int i = 0; i < dataUser.size(); i++) {
-            System.out.println(dataUser.get(i).getEmail());
             if (dataUser.get(i).getEmail().equals(email)) {
                 if (dataUser.get(i).getPassword().equals(password)) {
                     return true;
@@ -32,6 +37,15 @@ public class loginsystem {
         }
         return false;
     }
+
+    // check untuk user admin
+    public boolean check(String username) {
+    if (username.equals("123")) {
+        return true;
+    }
+        return false;
+    }
+
 
     // register
     public boolean register(String username, String email, String password) {
@@ -44,14 +58,6 @@ public class loginsystem {
             dataUser.add(temp);
             System.out.println(dataUser.size());
             System.out.println("data ditambah ");
-            return true;
-        }
-        return false;
-    }
-
-    // check untuk user admin
-    public boolean check(String username) {
-        if (username.equals("123")) {
             return true;
         }
         return false;
@@ -87,5 +93,9 @@ public class loginsystem {
             }
         }
         return true;
+    }
+    static <T,V> void giveError(T param1,Model model)
+    {
+        model.addAttribute("param1", param1);
     }
 }

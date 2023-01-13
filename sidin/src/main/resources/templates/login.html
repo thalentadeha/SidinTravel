@@ -3,11 +3,13 @@
         <div layout:fragment="content">
           <div class="card kartuLogin">
             <div class="card-body">
-              <h4>Email</h4>
-              <input type="email"class="form-control"id="username_form_login"name="email"><br>
-              <h4>Password</h4>
-              <input type="password"class="form-control"id="password_form_login"name="password"><br><br>
-              <button type="submit" class="btn btn-outline-primary"id="buttonLogin">Login</button>
+              <form th:object="${userdatalogin}"method="post"th:action="@{/login}">
+                <h4>Email</h4>
+                <input type="email"class="form-control"id="username_form_login"name="email"th:field="*{email}"><br>
+                <h4>Password</h4>
+                <input type="password"class="form-control"id="password_form_login"name="password"th:field="*{password}"><br><br>
+                <button type="submit" class="btn btn-outline-primary"id="buttonLogin">Login</button>
+              </form>
               <br><br>
               <h5>Belum punya akun daftar yukkzzz <a href="/register">daftar disini</a></h5>
             </div>
