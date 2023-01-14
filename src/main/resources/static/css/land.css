@@ -178,3 +178,47 @@ body{
 .img{
 	width: 600px;
 }
+
+.description{
+    line-height: 18px;
+    max-height: calc(18px * 3);
+    overflow: hidden;
+}
+
+.button-readmore::after{
+    font-family: sans-serif;
+    content: 'Read more';
+}
+
+.button-readmore{
+	justify-content: center;
+	align-items: center;
+	border: 2x solid #fff;
+	border-radius: 25px;
+	padding: 10px 20px;
+	font-size: 10px;
+	transition: .2s ease;
+	cursor: pointer;
+	outline: none;
+}
+
+.button-readmore:hover{
+	transform: translateY(-10px);
+	background: transparent;
+	border: 2px solid #fff;
+	color: #fff;
+	transition: .2s ease;
+}
+
+#check-readmore{
+    display: none;
+}
+
+#check-readmore:checked ~ .button-readmore::after{
+    font-family: sans-serif;
+    content: 'Read more';
+}
+
+#check-readmore:checked ~ .description{
+    max-height: 100vh;
+}
