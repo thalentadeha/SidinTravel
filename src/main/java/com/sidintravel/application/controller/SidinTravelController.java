@@ -51,11 +51,6 @@ public class SidinTravelController {
         return "home";
     }
 
-    @GetMapping("/about_us")
-    public String abt(Model model) {
-        return "about_us";
-    }
-
     @GetMapping("/register")
     public String reg(Model model) {
         model.addAttribute("userdatalogin", new userdatalogin("", "", ""));

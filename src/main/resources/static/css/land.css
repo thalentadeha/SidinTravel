@@ -48,8 +48,12 @@ body{
 	display: flex;
 }
 
+<<<<<<< HEAD
 
 .main-container header nav .menu ul li a{
+=======
+.main-container header nav .menu ul li{
+>>>>>>> parent of a0cb149 (update landing about us)
 	color: #fff;
 	padding: 16px 26px;
 	margin: 0 10px;
@@ -58,7 +62,11 @@ body{
 	/* transition: .2s ease; */
 }
 
+<<<<<<< HEAD
 .main-container header nav .menu ul li a:hover{
+=======
+.main-container header nav .menu ul li:hover{
+>>>>>>> parent of a0cb149 (update landing about us)
 	background: #fff;
 	color: #000;
 	/* transition: .2s ease; */
