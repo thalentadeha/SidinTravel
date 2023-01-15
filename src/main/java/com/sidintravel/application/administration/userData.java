@@ -20,14 +20,15 @@ public class userData {
     // username password
     // private HashMap<String, String> useremail = new HashMap<>(); // simpen
     // username email
-
     // simpen username, email, password
     private ArrayList<userdatalogin> dataUser = new ArrayList<>() {
         {
             add(new userdatalogin("Rahman", "1234qwerty", "rahman@gmail.com"));
         }
     };
-
+    public void changeisLogin(){
+        this.isLogin = true;
+    }
     // check untuk user biasa
     public boolean check(String email, String password) {
         for (int i = 0; i < dataUser.size(); i++) {
@@ -59,19 +60,9 @@ public class userData {
     }
 
     // register
-    public boolean register(String username, String email, String password) {
-        if (!checkEmailAvailability(email)) {
-            System.out.println("Email sudah terpakai atau format salah");
-        } else if (!checkUserAvailability(username)) {
-            System.out.println("Username sudah terpakai");
-        } else {
-            userdatalogin temp = new userdatalogin(username, password, email);
-            dataUser.add(temp);
-            System.out.println(dataUser.size());
-            System.out.println("data ditambah ");
-            return true;
-        }
-        return false;
+    public boolean register(userdatalogin tempUser) {
+        dataUser.add(tempUser);
+        return true;
     }
 
     // check available email

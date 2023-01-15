@@ -69,10 +69,12 @@ public class SidinTravelController {
         String tempEmail = (String) currUser.getEmail();
         Boolean checkUsername = dataUser.checkUserAvailability(tempUsername);
         Boolean checkEmail = dataUser.checkEmailAvailability(tempEmail);
-        if (checkEmail || checkUsername) {
+        if (!checkEmail || !checkUsername) {
             model.addAttribute("Error", "Email atau Username sudah dipakai");
             return "register";
         }
+        dataUser.register(currUser);
+        dataUser.changeisLogin();
         return "redirect:/home";
     }
 
@@ -130,5 +132,11 @@ public class SidinTravelController {
             return "adminLogin";
         }
         return "redirect:/home";
+    }
+
+    @GetMapping("/Admin/Add")
+    public String adminSidinAdd(Model model) {
+        model.addAttribute("userdatalogin", new userdatalogin("", "", ""));
+        return "adminLogin";
     }
 }
