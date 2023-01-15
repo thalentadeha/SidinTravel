@@ -30,7 +30,12 @@ public class SidinTravelController {
     @GetMapping("/login")
     public String logs(Model model) {
         model.addAttribute("userdatalogin", new userdatalogin("", "", ""));
-        return "login";
+        Boolean isLogin = dataUser.checkisLogin();
+        if (!isLogin) {
+            return "login";
+        }
+
+        return "redirect:/home";
     }
 
     @PostMapping("/login")
@@ -49,6 +54,11 @@ public class SidinTravelController {
 
     @GetMapping("/home")
     public String hms(Model model) {
+        Boolean isLogin = dataUser.checkisLogin();
+        if (!isLogin) {
+            return "error";
+        }
+
         return "home";
     }
 
@@ -60,7 +70,12 @@ public class SidinTravelController {
     @GetMapping("/register")
     public String reg(Model model) {
         model.addAttribute("userdatalogin", new userdatalogin("", "", ""));
-        return "register";
+        Boolean isLogin = dataUser.checkisLogin();
+        if (!isLogin) {
+            return "register";
+        }
+
+        return "home";
     }
 
     @PostMapping("/register")
@@ -82,7 +97,12 @@ public class SidinTravelController {
     @GetMapping("/lupa_pass")
     public String lupapass(Model model) {
         model.addAttribute("userdatalogin", new userdatalogin("", "", ""));
-        return "lupa_pass";
+        Boolean isLogin = dataUser.checkisLogin();
+        if (!isLogin) {
+            return "lupa_pass";
+        }
+
+        return "home";
     }
 
     @PostMapping("/lupa_pass")
@@ -101,6 +121,11 @@ public class SidinTravelController {
 
     @GetMapping("viewticket/{param}")
     public String ticketView(@PathVariable("param") String param, Model model) {
+        Boolean isLogin = dataUser.checkisLogin();
+        if (!isLogin) {
+            return "error";
+        }
+
         if (param.equals("Bus")) {
             model.addAttribute("tickets", dataTiket.showBis());
             model.addAttribute("code", '2');
@@ -134,20 +159,22 @@ public class SidinTravelController {
         }
         return "redirect:/home";
     }
+
     @GetMapping("/Admin/Add")
-    public String adminSidinAddmenu(@PathVariable("param") String param,Model model) {
+    public String adminSidinAddmenu(@PathVariable("param") String param, Model model) {
         return "adminAddmenu";
     }
+
     @GetMapping("/Admin/Add/{param}")
-    public String adminSidinAddspecific(@PathVariable("param") String param,Model model) {
+    public String adminSidinAddspecific(@PathVariable("param") String param, Model model) {
         if (param.equals("Bus")) {
             model.addAttribute("tickets", new dataTiketbus("", "", "", "", 0, 0));
             model.addAttribute("code", '2');
         } else if (param.equals("Kereta")) {
-            model.addAttribute("newData", new dataTiketkereta("", "", "","", 0, 0, 0));
+            model.addAttribute("newData", new dataTiketkereta("", "", "", "", 0, 0, 0));
             model.addAttribute("code", '1');
         } else if (param.equals("Pesawat")) {
-            model.addAttribute("newData", new dataTiketpesawat("", "", "","",0,0,0,0));
+            model.addAttribute("newData", new dataTiketpesawat("", "", "", "", 0, 0, 0, 0));
             model.addAttribute("code", '0');
         }
         return "adminAddmenu";
