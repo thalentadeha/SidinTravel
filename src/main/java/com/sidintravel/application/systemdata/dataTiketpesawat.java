@@ -14,7 +14,6 @@ public class dataTiketpesawat extends dataticket {
         this.Baggage = Baggage;
         this.Meal = Meal;
     }
-
     public Integer getWiFi() {
         return this.WiFi;
     }
