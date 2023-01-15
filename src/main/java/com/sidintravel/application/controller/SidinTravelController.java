@@ -50,7 +50,7 @@ public class SidinTravelController {
             model.addAttribute("Error", "Salah memasukkan email atau password");
             return "login";
         }
-
+        dataUser.changeisLogin();
         return "redirect:/home";
     }
 
@@ -92,8 +92,26 @@ public class SidinTravelController {
             return "register";
         }
         dataUser.register(currUser);
-        dataUser.changeisLogin();
-        return "redirect:/home";
+        return "redirect:/reg_success";
+    }
+
+    @GetMapping("/reg_success")
+    public String regsuccess(userdatalogin currUser, Model model) {
+        Boolean isLogin = dataUser.checkisLogin();
+        if (!isLogin) {
+            return "reg_success";
+        }
+
+        return "home";
+    }
+
+    @PostMapping("/reg_success")
+    public String regsuccesspost(userdatalogin currUser, Model model) {
+        Boolean isLogin = dataUser.checkisLogin();
+        if (!isLogin) {
+            return "login";
+        }
+        return "login";
     }
 
     @GetMapping("/lupa_pass")
