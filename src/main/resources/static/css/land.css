@@ -163,8 +163,10 @@ body{
 }
 
 .btn-expand-more{
+	margin-top: 10px;
     cursor: pointer;
-    border: 1px solid rgb(0, 0, 0);
+    /* border: 1px solid rgb(255, 255, 255); */
+	color: #fff;
     display: inline-block;
 	border-radius:3px;
 	padding: 5px;
