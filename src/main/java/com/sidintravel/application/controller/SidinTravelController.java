@@ -43,6 +43,7 @@ public class SidinTravelController {
             model.addAttribute("Error", "Salah memasukkan email atau password");
             return "login";
         }
+        
         return "redirect:/home";
     }
 
