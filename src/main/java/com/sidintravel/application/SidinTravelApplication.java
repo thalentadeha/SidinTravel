@@ -9,5 +9,4 @@ public class SidinTravelApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(SidinTravelApplication.class, args);
 	}
-
 }

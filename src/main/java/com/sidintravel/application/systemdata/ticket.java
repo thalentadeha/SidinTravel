@@ -26,7 +26,7 @@ public class ticket {
 
     }
 
-    public void getdataticke_bis() {
+    public void getdataticket_bis() {
         for (int i = 0; i < bis.size(); i++) {
             System.out.println(bis.get(i).maskapai);
             System.out.println(bis.get(i).awal);
