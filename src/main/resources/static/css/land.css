@@ -145,6 +145,29 @@ body{
 	font-weight: bold;
 }
 
+.expandMoreContent{
+    height: 50px;
+    overflow: hidden;
+    transition: height .5s ease-in-out;
+    position: relative;
+}
+
+.expandMoreContent.expand-active{
+    height:auto;
+    transition: height .5s ease-in-out;
+}
+
+.expandMoreHolder{
+    padding:15px 25;
+    text-align: center;
+}
+
+.btn-expand-more{
+    cursor: pointer;
+    border: 1px solid pink;
+    display: inline-block;
+}
+
 .container section .left .content .para{
 	width: 70%;
 }

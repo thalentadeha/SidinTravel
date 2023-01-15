@@ -6,6 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Landing Page</title>
     <link rel="stylesheet" type="text/css" href="/css/land.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+    const expandsMore = document.querySelectorAll('[expand-more]')
+
+    function expand() {
+        const showContent = document.getElementById(this.dataset.target)
+        if(showContent.classList.contains('expand-active')) {
+            this.innerHTML = this.dataset.showtext
+        }
+        else{
+            this.innerHTML = this.dataset.hidetext
+        }
+        showContent.classList.toggle('expand-active')
+    }
+    expandsMore.forEach(expandsMore => {
+        expandsMore.addEventListener('click', expand)
+    })
+})
+    </script>
 </head>
 <body>
     <div class="main-container">
@@ -34,18 +53,28 @@
                     <div class="content">
                         <h1>Welcome to Sidin Travel</h1>
                         <h4>We Bring The World To You</h4>
-                        <div class="para">
-                            <input type="checkbox" id="check-readmore">
-                                <p class="description">
-                                    Are you in search of the best deals on tickets for your next event or trip? Look no further than ABC Ticket Booking! We offer a wide selection of tickets for concerts, sports games, theater shows, and more. Plus, with our exclusive discounts and promotions, you'll be sure to find the perfect ticket at the best price. Book now and enjoy our easy and secure booking process, as well as our fast delivery options. Plus, our dedicated customer service team is available to help with any questions or issues. Don't miss out on the chance to experience your favorite event or destination. Book with ABC Ticket Booking today!
-                                </p>
-                                <label for="check-readmore" class="button-readmore"></label>
-                                <br><br><br>
-                            <a href="/register"><button>Register</button></a>
-                        </div>
                     </div>
+                    <div class="description">
+                        <div class="expandMoreContent" id="showMoreContent1">
+                            <p>
+                                Are you in search of the best deals on tickets for your next event or trip? 
+                                Look no further than ABC Ticket Booking! We offer a wide selection of tickets for concerts, sports games, theater shows, and more.
+                                Plus, with our exclusive discounts and promotions, you'll be sure to find the perfect ticket at the best price.
+                                Book now and enjoy our easy and secure booking process, as well as our fast delivery options.
+                                Plus, our dedicated customer service team is available to help with any questions or issues.                            Don't miss out on the chance to experience your favorite event or destination.
+                                Book with ABC Ticket Booking today!
+                            </p>
+                            <!-- <label for="check-readmore" class="button-readmore"></label> -->
+                        </div>
+                        <div class="expandMoreHolder">
+                            <span expand-more data-hidetext="Read Less" data-showtext="Read More" data-target="showMoreContent1" class="btn-expand-more">
+                                Read More
+                            </span>
+                           </div>
+                    </div>
+                        <a href="/register"><button>Register</button></a>
                 </div>
-
+                    
                 <div class="right">
                     <img src="/image/tulisan_doang.png" class="img">
                 </div>
