@@ -57,7 +57,7 @@
                                         <div th:if="${ticket.maskapai == 'Garuda Indonesia'}">
                                             <img src="/image/Garuda_Ind_logo.png">
                                         </div>
-                                        <h4 style="margin-bottom:1rem;margin-top:4rem;">Harga: <span th:text="${ticket.harga}"></span></h4>
+                                        <h4 style="margin-bottom:1rem;margin-top:4rem;"><span th:text="${ticket.harga}"></span><p>/pax</p></h4>
                                     </div>
                                 </div>
                             </div>
@@ -98,7 +98,7 @@
                                 </div>
                                 <div class="col">
                                     <h3 class="card-title"id="title"th:text="${ticket.maskapai}"></h3>
-                                    <h4 style="margin-bottom:1rem;margin-top:4rem;">Harga: <span th:text="${ticket.harga}"></span></h4>
+                                    <h4 style="margin-bottom:1rem;margin-top:130px;"><span th:text="${ticket.harga}"></span><p>/pax</p></h4>
                                 </div>
                             </div>
                         </div>
@@ -140,7 +140,7 @@
                                     <div th:if="${ticket.maskapai == 'Agramas'}">
                                         <img src="/image/Logo-agramas.png">
                                     </div>
-                                    <h4 style="margin-bottom:1rem;margin-top:4rem;">Harga: <span th:text="${ticket.harga}"></span></h4>
+                                    <h4 style="margin-bottom:1rem;margin-top:4rem;"><span th:text="${ticket.harga}"></span><p>/pax</p></h4>
                                 </div>
                             </div>
                         </div>

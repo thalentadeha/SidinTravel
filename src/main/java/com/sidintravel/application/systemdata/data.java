@@ -24,7 +24,7 @@ public class data {
     };
     private ArrayList<dataTiketkereta> kereta = new ArrayList<dataTiketkereta>() {
         {
-            add(new dataTiketkereta("Kertanegara", "Malang", "Yogyakarta", "tba", 410000, 1, 1));
+            add(new dataTiketkereta("Kertanegara", "Malang", "Purwokerto", "tba", 410000, 1, 1));
             add(new dataTiketkereta("Argo Lawu", "Solo Balapan", "Gambir", "tba", 600000, 0, 0));
             add(new dataTiketkereta("Argo Wilis", "Bandung", "Surabaya", "tba", 540000, 0, 1));
         }
