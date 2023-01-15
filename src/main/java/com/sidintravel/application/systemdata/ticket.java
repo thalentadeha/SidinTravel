@@ -10,13 +10,13 @@ public class ticket {
     public void fillData() {
         bis.add(new dataticket("Pahala Kencana", "Bandung", "Surabaya", "tba", 200000));
         bis.add(new dataticket("Lorena", "Jakarta", "Malang", "tba", 300000));
-        bis.add(new dataticket("Harapan Baru", "Yogyakarta", "Jakarta", "tba", 150000));
+        bis.add(new dataticket("Agramas", "Yogyakarta", "Jakarta", "tba", 750000));
 
         pesawat.add(new dataticket("Lion Air", "Jakarta", "Balikpapan", "tba", 800000));
         pesawat.add(new dataticket("Citilink", "Malang", "Jakarta", "tba", 1200000));
         pesawat.add(new dataticket("Garuda Indonesia", "Jakarta", "Bali", "tba", 2000000));
 
-        kereta.add(new dataticket("Kertanegara", "Malang", "Yogyakarta", "tba", 410000));
+        kereta.add(new dataticket("Kertanegara", "Malang", "Purwokerto", "tba", 410000));
         kereta.add(new dataticket("Argo Lawu", "Solo Balapan", "Gambir", "tba", 600000));
         kereta.add(new dataticket("Argo Wilis", "Bandung", "Surabaya", "tba", 540000));
     }

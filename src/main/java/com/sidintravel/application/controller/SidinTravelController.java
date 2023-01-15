@@ -126,13 +126,13 @@ public class SidinTravelController {
     }
 
     @PostMapping("/Admin")
-    public String adminSidinpost(userdatalogin currAdmin,Model model) {
+    public String adminSidinpost(userdatalogin currAdmin, Model model) {
         String tempPassword = (String) currAdmin.getPassword();
-        if(!dataUser.check(tempPassword)){
+        if (!dataUser.check(tempPassword)) {
             model.addAttribute("Error", "Anda bukan admin ya");
             return "adminLogin";
         }
-        return "redirect:/Admin/Add";
+        return "redirect:/home";
     }
     @GetMapping("/Admin/Add")
     public String adminSidinAddmenu(@PathVariable("param") String param,Model model) {
