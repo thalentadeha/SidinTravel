@@ -8,17 +8,17 @@ public class ticket {
     ArrayList<dataticket> kereta = new ArrayList<dataticket>();
 
     public void fillData() {
-        bis.add(new dataticket("Pahala Kencana", "Bandung", "Surabaya", "tba", 200000));
-        bis.add(new dataticket("Lorena", "Jakarta", "Malang", "tba", 300000));
-        bis.add(new dataticket("Agramas", "Yogyakarta", "Jakarta", "tba", 750000));
+        bis.add(new dataticket("Pahala Kencana", "Bandung", "Surabaya", "08:00", 200000));
+        bis.add(new dataticket("Lorena", "Jakarta", "Malang", "06:00", 300000));
+        bis.add(new dataticket("Agramas", "Yogyakarta", "Jakarta", "12:00", 750000));
 
-        pesawat.add(new dataticket("Lion Air", "Jakarta", "Balikpapan", "tba", 800000));
-        pesawat.add(new dataticket("Citilink", "Malang", "Jakarta", "tba", 1200000));
-        pesawat.add(new dataticket("Garuda Indonesia", "Jakarta", "Bali", "tba", 2000000));
+        pesawat.add(new dataticket("Lion Air", "Jakarta", "Balikpapan", "10:50", 800000));
+        pesawat.add(new dataticket("Citilink", "Malang", "Jakarta", "16:30", 1200000));
+        pesawat.add(new dataticket("Garuda Indonesia", "Jakarta", "Bali", "13:10", 2000000));
 
-        kereta.add(new dataticket("Kertanegara", "Malang", "Purwokerto", "tba", 410000));
-        kereta.add(new dataticket("Argo Lawu", "Solo Balapan", "Gambir", "tba", 600000));
-        kereta.add(new dataticket("Argo Wilis", "Bandung", "Surabaya", "tba", 540000));
+        kereta.add(new dataticket("Kertanegara", "Malang", "Purwokerto", "08:20", 410000));
+        kereta.add(new dataticket("Argo Lawu", "Solo Balapan", "Gambir", "19:00", 600000));
+        kereta.add(new dataticket("Argo Wilis", "Bandung", "Surabaya", "22:35", 540000));
     }
 
     // bis
@@ -31,7 +31,7 @@ public class ticket {
             System.out.println(bis.get(i).maskapai);
             System.out.println(bis.get(i).awal);
             System.out.println(bis.get(i).tujuan);
-            System.out.println(bis.get(i).tanggal);
+            System.out.println(bis.get(i).jam);
             System.out.println(bis.get(i).harga);
         }
     }
@@ -46,7 +46,7 @@ public class ticket {
             System.out.println(pesawat.get(i).maskapai);
             System.out.println(pesawat.get(i).awal);
             System.out.println(pesawat.get(i).tujuan);
-            System.out.println(pesawat.get(i).tanggal);
+            System.out.println(pesawat.get(i).jam);
             System.out.println(pesawat.get(i).harga);
         }
     }
@@ -61,7 +61,7 @@ public class ticket {
             System.out.println(kereta.get(i).maskapai);
             System.out.println(kereta.get(i).awal);
             System.out.println(kereta.get(i).tujuan);
-            System.out.println(kereta.get(i).tanggal);
+            System.out.println(kereta.get(i).jam);
             System.out.println(kereta.get(i).harga);
         }
     }

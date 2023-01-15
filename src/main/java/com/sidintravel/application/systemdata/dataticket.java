@@ -7,17 +7,17 @@ public class dataticket {
     String maskapai;
     String awal;
     String tujuan;
-    String tanggal;
+    String jam;
     double harga;
 
     Locale localeID = new Locale("in", "ID");
     NumberFormat numForm = NumberFormat.getCurrencyInstance(localeID);
 
-    public dataticket(String maskapai, String awal, String tujuan, String tanggal, double harga) {
+    public dataticket(String maskapai, String awal, String tujuan, String jam, double harga) {
         this.maskapai = maskapai;
         this.awal = awal;
         this.tujuan = tujuan;
-        this.tanggal = tanggal;
+        this.jam = jam;
         this.harga = harga;
     }
 
@@ -45,12 +45,12 @@ public class dataticket {
         this.tujuan = tujuan;
     }
 
-    public String tanggal() {
-        return tanggal;
+    public String jam() {
+        return jam;
     }
 
-    public void setTanggal(String tanggal) {
-        this.tanggal = tanggal;
+    public void setJam(String jam) {
+        this.jam = jam;
     }
 
     public String harga() {
