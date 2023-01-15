@@ -13,7 +13,7 @@ public class userData {
     protected String username;
     protected String email;
     protected String password;
-    protected Boolean isLogin = false;
+    protected Boolean isLogin = true;
     protected Boolean isAdmin = false;
 
     // private HashMap<String, String> userpass = new HashMap<>(); // simpen
@@ -26,9 +26,11 @@ public class userData {
             add(new userdatalogin("Rahman", "1234qwerty", "rahman@gmail.com"));
         }
     };
-    public void changeisLogin(){
+
+    public void changeisLogin() {
         this.isLogin = true;
     }
+
     // check untuk user biasa
     public boolean check(String email, String password) {
         for (int i = 0; i < dataUser.size(); i++) {
@@ -39,6 +41,8 @@ public class userData {
                 }
             }
         }
+
+        isLogin = false;
         return false;
     }
 
@@ -57,6 +61,10 @@ public class userData {
             return true;
         }
         return false;
+    }
+
+    public boolean checkisLogin() {
+        return isLogin;
     }
 
     // register
