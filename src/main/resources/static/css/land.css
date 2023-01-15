@@ -191,8 +191,6 @@ body{
 }
 
 .button-readmore{
-	justify-content: center;
-	align-items: center;
 	border: 2x solid #fff;
 	border-radius: 25px;
 	padding: 10px 20px;
@@ -216,7 +214,7 @@ body{
 
 #check-readmore:checked ~ .button-readmore::after{
     font-family: sans-serif;
-    content: 'Read more';
+    content: 'Read less';
 }
 
 #check-readmore:checked ~ .description{

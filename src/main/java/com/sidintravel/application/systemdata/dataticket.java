@@ -1,6 +1,7 @@
 package com.sidintravel.application.systemdata;
 
 import java.text.NumberFormat;
+import java.util.Locale;
 
 public class dataticket {
     String maskapai;
@@ -8,7 +9,9 @@ public class dataticket {
     String tujuan;
     String tanggal;
     double harga;
-    // NumberFormat numForm = NumberFormat.getCurrencyInstance();
+
+    Locale localeID = new Locale("in", "ID");
+    NumberFormat numForm = NumberFormat.getCurrencyInstance(localeID);
 
     public dataticket(String maskapai, String awal, String tujuan, String tanggal, double harga) {
         this.maskapai = maskapai;
@@ -50,8 +53,8 @@ public class dataticket {
         this.tanggal = tanggal;
     }
 
-    public double harga() {
-        return harga;
+    public String harga() {
+        return numForm.format(harga);
     }
 
     public void setHarga(double harga) {
