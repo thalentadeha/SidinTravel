@@ -1,4 +1,15 @@
 <html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"layout:decorate="~{layout}">
+    <style>
+    .kotak{
+	border-radius: 20px;
+	background-color:bisque;
+    }
+    .tulisan{
+	margin-top:10rem;
+	padding-top: 5rem;
+	padding-bottom: 5rem
+    }
+    </style>
     <body>
         <div layout:fragment="content">
             <div class="container"id="login_contain">
@@ -8,7 +19,11 @@
                           <img src="{% static 'YourTalent/login.svg' %}"id="login_image">
                         </div>
                         <div class="col"id="the_form_part_login">
-                         
+                            <div class="container-fluid mt-5 text-center">
+                                <div class="container kotak">
+                                    <h1 class="tulisan">Erorr :v </h1>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
