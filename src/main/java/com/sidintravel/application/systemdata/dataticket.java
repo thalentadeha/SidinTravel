@@ -29,7 +29,7 @@ public class dataticket {
         return id;
     }
 
-    public Integer setID() {
+    public void setID() {
         this.id = id;
     }
 

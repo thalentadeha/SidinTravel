@@ -182,13 +182,13 @@ public class SidinTravelController {
     @GetMapping("/Admin/realAdd/{param}")
     public String adminSidinAddspecific(@PathVariable("param") String param, Model model) {
         if (param.equals("Bus")) {
-            model.addAttribute("newData", new dataTiketbus("", "", "", "", 0, 0));
+            model.addAttribute("newData", new dataTiketbus(0, "", "", "", "", 0, 0));
             model.addAttribute("code", '2');
         } else if (param.equals("Kereta")) {
-            model.addAttribute("newData", new dataTiketkereta("", "", "", "", 0, 0, 0));
+            model.addAttribute("newData", new dataTiketkereta(0, "", "", "", "", 0, 0, 0));
             model.addAttribute("code", '1');
         } else if (param.equals("Pesawat")) {
-            model.addAttribute("newData", new dataTiketpesawat("", "", "", "", 0, 0, 0, 0));
+            model.addAttribute("newData", new dataTiketpesawat(0, "", "", "", "", 0, 0, 0, 0));
             model.addAttribute("code", '0');
         }
         return "addTicket";

@@ -6,9 +6,10 @@ public class dataTiketpesawat extends dataticket {
     private Integer Baggage;
     private Integer Meal;
 
-    public dataTiketpesawat(String maskapai, String awal, String tujuan, String jam, double harga, Integer WiFi,
+    public dataTiketpesawat(Integer id, String maskapai, String awal, String tujuan, String jam, double harga,
+            Integer WiFi,
             Integer Baggage, Integer Meal) {
-        super(maskapai, awal, tujuan, jam, harga);
+        super(id, maskapai, awal, tujuan, jam, harga);
         this.WiFi = WiFi;
         this.Baggage = Baggage;
         this.Meal = Meal;
