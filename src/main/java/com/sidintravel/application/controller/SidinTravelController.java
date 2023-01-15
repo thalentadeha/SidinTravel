@@ -43,7 +43,7 @@ public class SidinTravelController {
             model.addAttribute("Error", "Salah memasukkan email atau password");
             return "login";
         }
-        
+
         return "redirect:/home";
     }
 
@@ -132,12 +132,11 @@ public class SidinTravelController {
             model.addAttribute("Error", "Anda bukan admin ya");
             return "adminLogin";
         }
-        return "redirect:/home";
+        return "redirect:/Admin/Add";
     }
 
     @GetMapping("/Admin/Add")
     public String adminSidinAdd(Model model) {
-        model.addAttribute("userdatalogin", new userdatalogin("", "", ""));
-        return "adminLogin";
+        return "adminAddmenu";
     }
 }
