@@ -1,10 +1,12 @@
 package com.sidintravel.application.systemdata;
 
 public class dataTiketbus extends dataticket {
-
-    public dataTiketbus(String maskapai, String awal, String tujuan, String tanggal, double harga) {
+    Integer WiFi;
+    public dataTiketbus(String maskapai, String awal, String tujuan, String tanggal, double harga,Integer WiFi) {
         super(maskapai, awal, tujuan, tanggal, harga);
-        //TODO Auto-generated constructor stub
+        this.WiFi = WiFi;
     }
-    
+    public Integer getWiFi() {
+        return this.WiFi;
+    }
 }

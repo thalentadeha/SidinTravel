@@ -100,8 +100,10 @@ public class SidinTravelController {
     public String ticketView(@PathVariable("param") String param, Model model) {
         if (param.equals("Bus")) {
             model.addAttribute("tickets", dataTiket.showBis());
+            model.addAttribute("code", '2');
         } else if (param.equals("Kereta")) {
             model.addAttribute("tickets", dataTiket.showKereta());
+            model.addAttribute("code", '1');
         } else if (param.equals("Pesawat")) {
             model.addAttribute("tickets", dataTiket.showPesawat());
             model.addAttribute("code", '0');
