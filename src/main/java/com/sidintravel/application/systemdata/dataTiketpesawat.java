@@ -5,8 +5,8 @@ public class dataTiketpesawat extends dataticket {
     private Integer WiFi;
     private Integer Baggage;
     private Integer Meal;
-    public dataTiketpesawat(String maskapai, String awal, String tujuan, String tanggal, double harga,Integer WiFi,Integer Baggage,Integer Meal) {
-        super(maskapai, awal, tujuan, tanggal, harga);
+    public dataTiketpesawat(String maskapai, String awal, String tujuan, String jam, double harga,Integer WiFi,Integer Baggage,Integer Meal) {
+        super(maskapai, awal, tujuan, jam, harga);
         this.WiFi = WiFi;
         this.Baggage = Baggage;
         this.Meal = Meal;
@@ -27,9 +27,9 @@ public class dataTiketpesawat extends dataticket {
         return super.getHarga();
     }
     @Override
-    public String getTanggal() {
+    public String getJam() {
         // TODO Auto-generated method stub
-        return super.getTanggal();
+        return super.getJam();
     }
     @Override
     public String getTujuan() {
