@@ -1,23 +1,24 @@
 <html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"layout:decorate="~{layout}">
     <body>
         <div layout:fragment="content">
-            <img src="/image/logo_with_tulisan.png" id="logoHome"alt="Sidin Copyright">
+            <div class="container text-center">
+                <img src="/image/logo_with_tulisan.png" id="logoHome"alt="Sidin Copyright">
+            </div>
             <div class="row"id="tempatCard">
-                <div class="col">
+                <div class="col text-center">
                     <a href="/Admin/realAdd/Kereta"class="kartuSidin">
-                        <div class="card" style="width: 18rem;">
+                        <div class="card">
                             <img src="/image/kereta_sidin.png" class="card-img-top" alt="Gambar sidin naik kereta">
                             <div class="card-body">
                               <h5 class="card-title">Sidin Train Travel</h5>
                               <p class="card-text">Halo Admin Sidin jangan males nambah tiket train travel yuk.</p>
-                              <p class="card-text">.</p>
                             </div>
                         </div>
                     </a>
                 </div>
-                <div class="col">
+                <div class="col text-center">
                 <a href="/Admin/realAdd/Bus"class="kartuSidin">
-                    <div class="card" style="width: 18rem;">
+                    <div class="card">
                         <img src="/image/bis_sidin.png" class="card-img-top" alt="Gambar sidin naik bis">
                         <div class="card-body">
                             <h5 class="card-title">Sidin Bus Travel</h5>
@@ -26,9 +27,9 @@
                     </div>
                 </a>
                 </div>
-                <div class="col">
+                <div class="col text-center">
                     <a href="/Admin/realAdd/Pesawat" class="kartuSidin">
-                        <div class="card" style="width: 18rem;">
+                        <div class="card">
                             <img src="/image/pesawat_sidin.png" class="card-img-top" alt="Gambar sidin naik pesawat">
                             <div class="card-body">
                                 <h5 class="card-title">Sidin Airplane Travel</h5>

@@ -1,6 +1,7 @@
 .kartuSidin{
     color: black;
     text-decoration:none; 
+    /* margin-right: 10rem; */
 }
 .kartuSidin:hover {
     color:black; 
