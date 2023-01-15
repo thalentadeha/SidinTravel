@@ -30,7 +30,9 @@
                         <input type="number" class="form-control" id="exampleInputEmail3" aria-describedby="emailHelp"th:field="*{harga}">
                     </div>
                    <h5>WiFi</h5>
-                    <div class="form-check">
+                   <div class="row">
+                    <div class="col">
+                      <div class="form-check">
                         <input class="form-check-input" type="radio" name="WiFi" id="flexRadioDefault1"value="1"th:field="*{WiFi}">
                         <label class="form-check-label" for="flexRadioDefault1">
                           Iya
@@ -68,11 +70,14 @@
                           Tidak
                         </label>
                       </div>
+                    </div>
+                   </div>
+                    
                     <button type="submit" class="btn btn-primary">Submit</button>
                   </form>
             </div>
             <div th:case="'1'">
-                <form th:object="${newData}"method="post"th:action="@{/Admin/realAdd/postPesawat}">
+                <form th:object="${newData}"method="post"th:action="@{/Admin/realAdd/postKereta}">
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">ID</label>
                         <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"th:field="*{id}">
@@ -129,7 +134,7 @@
                   </form>
             </div>
             <div th:case="'2'">
-                <form th:object="${newData}"method="post"th:action="@{/Admin/realAdd/postPesawat}">
+                <form th:object="${newData}"method="post"th:action="@{/Admin/realAdd/postBus}">
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">ID</label>
                         <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"th:field="*{id}">

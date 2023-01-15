@@ -13,7 +13,7 @@ public class userData {
     protected String username;
     protected String email;
     protected String password;
-    protected Boolean isLogin = true;
+    protected Boolean isLogin = false;
     protected Boolean isAdmin = false;
 
     // private HashMap<String, String> userpass = new HashMap<>(); // simpen
@@ -29,6 +29,10 @@ public class userData {
 
     public void changeisLogin() {
         this.isLogin = true;
+    }
+    public void nowisLogout(){
+        this.isLogin = false;
+        this.isAdmin = false;
     }
 
     // check untuk user biasa

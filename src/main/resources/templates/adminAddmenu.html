@@ -4,6 +4,11 @@
             <div class="container text-center">
                 <img src="/image/logo_with_tulisan.png" id="logoHome"alt="Sidin Copyright">
             </div>
+            <span th:if="${Success != null}">
+              <div class="alert alert-danger" role="alert"th:text="${Success}">
+                
+              </div>
+            </span>
             <div class="row"id="tempatCard">
                 <div class="col text-center">
                     <a href="/Admin/realAdd/Kereta"class="kartuSidin">

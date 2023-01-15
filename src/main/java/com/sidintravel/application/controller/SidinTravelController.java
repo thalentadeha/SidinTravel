@@ -213,8 +213,26 @@ public class SidinTravelController {
     }
 
     @PostMapping("/Admin/realAdd/postPesawat")
-    public String adminSidinAddspecificPost(@PathVariable("param") String param, Model model) {
-
-        return "addTicket";
+    public String adminSidinAddspecificPostpesawat(dataTiketpesawat newData, Model model) {
+        dataTiket.addPesawat(newData);
+        model.addAttribute("Success", "SSSIIIIUUUUU Berhasil tambah tiket pesawatnya");
+        return "redirect:/Admin/Add";
+    }
+    @PostMapping("/Admin/realAdd/postKereta")
+    public String adminSidinAddspecificPostkereta(dataTiketkereta newData,Model model) {
+        dataTiket.addKereta(newData);
+        model.addAttribute("Success", "SSSIIIIUUUUU Berhasil tambah tiket keretanya");
+        return "redirect:/Admin/Add";
+    }
+    @PostMapping("/Admin/realAdd/postBus")
+    public String adminSidinAddspecificPostbus(dataTiketbus newData, Model model) {
+        dataTiket.addBus(newData);
+        model.addAttribute("Success", "SSSIIIIUUUUU Berhasil tambah tiket Busnya");
+        return "redirect:/Admin/Add";
+    }
+    @GetMapping("/logout")
+    public String Logout(Model model){
+        dataUser.nowisLogout();
+        return "redirect:/";
     }
 }

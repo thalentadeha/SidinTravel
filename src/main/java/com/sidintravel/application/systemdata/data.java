@@ -29,7 +29,15 @@ public class data {
             add(new dataTiketkereta(3, "Argo Wilis", "Bandung", "Surabaya", "22:35", 540000, 0, 1));
         }
     };
-
+    public void addPesawat(dataTiketpesawat Temp){
+        pesawat.add(Temp);
+    }
+    public void addKereta(dataTiketkereta Temp){
+        kereta.add(Temp);
+    }
+    public void addBus(dataTiketbus Temp){
+        bis.add(Temp);
+    }
     public List<dataTiketbus> showBis() {
         return bis;
     }
