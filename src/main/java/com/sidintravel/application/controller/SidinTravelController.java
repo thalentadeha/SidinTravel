@@ -132,16 +132,16 @@ public class SidinTravelController {
             model.addAttribute("Error", "Anda bukan admin ya");
             return "adminLogin";
         }
-        return "redirect:/home";
+        return "redirect:/Admin/Add";
     }
     @GetMapping("/Admin/Add")
-    public String adminSidinAddmenu(@PathVariable("param") String param,Model model) {
+    public String adminSidinAddmenu(Model model) {
         return "adminAddmenu";
     }
-    @GetMapping("/Admin/Add/{param}")
+    @GetMapping("/Admin/realAdd/{param}")
     public String adminSidinAddspecific(@PathVariable("param") String param,Model model) {
         if (param.equals("Bus")) {
-            model.addAttribute("tickets", new dataTiketbus("", "", "", "", 0, 0));
+            model.addAttribute("newData", new dataTiketbus("", "", "", "", 0, 0));
             model.addAttribute("code", '2');
         } else if (param.equals("Kereta")) {
             model.addAttribute("newData", new dataTiketkereta("", "", "","", 0, 0, 0));
@@ -150,6 +150,11 @@ public class SidinTravelController {
             model.addAttribute("newData", new dataTiketpesawat("", "", "","",0,0,0,0));
             model.addAttribute("code", '0');
         }
-        return "adminAddmenu";
+        return "addTicket";
+    }
+    @PostMapping("/Admin/realAdd/postPesawat")
+    public String adminSidinAddspecificPost(@PathVariable("param") String param,Model model) {
+        
+        return "addTicket";
     }
 }

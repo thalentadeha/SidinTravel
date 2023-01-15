@@ -3,34 +3,160 @@
         <div layout:fragment="content">
             <td th:switch="${code}">
             <div th:case="'0'">
-                <form>
+                <form th:object="${newData}"method="post"th:action="@{/Admin/realAdd/postPesawat}">
                     <div class="mb-3">
                       <label for="exampleInputEmail1" class="form-label">Maskapai</label>
-                      <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                      <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"th:field="*{maskapai}">
                       <div id="emailHelp" class="form-text">Ingat maskapai ada tiga (pesawat -> Lion Air,Citilink, Garuda Indonesia),(Kereta -> Kertanegara, Argo Lawu, Argo Wilis),(Kereta -> Pahala Kencana, Lorena, Agramas)</div>
                     </div>
                     <div class="mb-3">
-                      <label for="exampleInputPassword1" class="form-label">Password</label>
-                      <input type="text" class="form-control" id="exampleInputPassword1">
+                      <label for="exampleInputPassword1" class="form-label">Awal</label>
+                      <input type="text" class="form-control" id="exampleInputPassword1"th:field="*{awal}">
                     </div>
                     <div class="mb-3">
-                        <label for="exampleInputEmail2" class="form-label">Email address</label>
-                        <input type="text" class="form-control" id="exampleInputEmail2" aria-describedby="emailHelp">
-                        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                        <label for="exampleInputEmail2" class="form-label">Tujuan</label>
+                        <input type="text" class="form-control" id="exampleInputEmail2" aria-describedby="emailHelp"th:field="*{tujuan}">
                     </div>
                     <div class="mb-3">
-                        <label for="exampleInputEmail3" class="form-label">Email address</label>
-                        <input type="text" class="form-control" id="exampleInputEmail3" aria-describedby="emailHelp">
-                        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                        <label for="exampleInputEmail3" class="form-label">Tanggal</label>
+                        <input type="date" class="form-control" id="exampleInputEmail3" aria-describedby="emailHelp"th:field="*{tanggal}">
                     </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail3" class="form-label">Harga</label>
+                        <input type="number" class="form-control" id="exampleInputEmail3" aria-describedby="emailHelp"th:field="*{harga}">
+                    </div>
+                   <h5>WiFi</h5>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="WiFi" id="flexRadioDefault1"value="1"th:field="*{WiFi}">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                          Iya
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="WiFi" id="flexRadioDefault2"value="0"th:field="*{WiFi}" checked>
+                        <label class="form-check-label" for="flexRadioDefault2">
+                          Tidak
+                        </label>
+                      </div>
+                      <h5>Baggage</h5>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="Baggage" id="flexRadioDefault1"value="1"th:field="*{Baggage}">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                          Iya
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="Baggage"value="0" id="flexRadioDefault2"th:field="*{Baggage}" checked>
+                        <label class="form-check-label" for="flexRadioDefault2">
+                          Tidak
+                        </label>
+                      </div>
+                      <h5>Meal</h5>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="Meal" value="1"id="flexRadioDefault1"th:field="*{Meal}">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                          Iya
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="Meal"value="0" id="flexRadioDefault2"th:field="*{Meal}" checked>
+                        <label class="form-check-label" for="flexRadioDefault2">
+                          Tidak
+                        </label>
+                      </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                   </form>
             </div>
             <div th:case="'1'">
-
+                <form th:object="${newData}"method="post"th:action="@{/Admin/realAdd/postPesawat}">
+                    <div class="mb-3">
+                      <label for="exampleInputEmail1" class="form-label">Maskapai</label>
+                      <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"th:field="*{maskapai}">
+                      <div id="emailHelp" class="form-text">Ingat maskapai ada tiga (pesawat -> Lion Air,Citilink, Garuda Indonesia),(Kereta -> Kertanegara, Argo Lawu, Argo Wilis),(Kereta -> Pahala Kencana, Lorena, Agramas)</div>
+                    </div>
+                    <div class="mb-3">
+                      <label for="exampleInputPassword1" class="form-label">Awal</label>
+                      <input type="text" class="form-control" id="exampleInputPassword1"th:field="*{awal}">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail2" class="form-label">Tujuan</label>
+                        <input type="text" class="form-control" id="exampleInputEmail2" aria-describedby="emailHelp"th:field="*{tujuan}">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail3" class="form-label">Tanggal</label>
+                        <input type="date" class="form-control" id="exampleInputEmail3" aria-describedby="emailHelp"th:field="*{tanggal}">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail3" class="form-label">Harga</label>
+                        <input type="number" class="form-control" id="exampleInputEmail3" aria-describedby="emailHelp"th:field="*{harga}">
+                    </div>
+                   <h5>WiFi</h5>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="WiFi" id="flexRadioDefault1"value="1"th:field="*{WiFi}">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                          Iya
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="WiFi" id="flexRadioDefault2"value="0"th:field="*{WiFi}" checked>
+                        <label class="form-check-label" for="flexRadioDefault2">
+                          Tidak
+                        </label>
+                      </div>
+                      <h5>Meal</h5>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="Meal" value="1"id="flexRadioDefault1"th:field="*{Meal}">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                          Iya
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="Meal"value="0" id="flexRadioDefault2"th:field="*{Meal}" checked>
+                        <label class="form-check-label" for="flexRadioDefault2">
+                          Tidak
+                        </label>
+                      </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                  </form>
             </div>
             <div th:case="'2'">
-
+                <form th:object="${newData}"method="post"th:action="@{/Admin/realAdd/postPesawat}">
+                    <div class="mb-3">
+                      <label for="exampleInputEmail1" class="form-label">Maskapai</label>
+                      <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"th:field="*{maskapai}">
+                      <div id="emailHelp" class="form-text">Ingat maskapai ada tiga (pesawat -> Lion Air,Citilink, Garuda Indonesia),(Kereta -> Kertanegara, Argo Lawu, Argo Wilis),(Kereta -> Pahala Kencana, Lorena, Agramas)</div>
+                    </div>
+                    <div class="mb-3">
+                      <label for="exampleInputPassword1" class="form-label">Awal</label>
+                      <input type="text" class="form-control" id="exampleInputPassword1"th:field="*{awal}">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail2" class="form-label">Tujuan</label>
+                        <input type="text" class="form-control" id="exampleInputEmail2" aria-describedby="emailHelp"th:field="*{tujuan}">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail3" class="form-label">Tanggal</label>
+                        <input type="date" class="form-control" id="exampleInputEmail3" aria-describedby="emailHelp"th:field="*{tanggal}">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail3" class="form-label">Harga</label>
+                        <input type="number" class="form-control" id="exampleInputEmail3" aria-describedby="emailHelp"th:field="*{harga}">
+                    </div>
+                   <h5>WiFi</h5>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="WiFi" id="flexRadioDefault1"value="1"th:field="*{WiFi}">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                          Iya
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="WiFi" id="flexRadioDefault2"value="0"th:field="*{WiFi}" checked>
+                        <label class="form-check-label" for="flexRadioDefault2">
+                          Tidak
+                        </label>
+                      </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                  </form>
             </div>
             <div th:case="'*'">
                 <h1>YNTKTS</h1>

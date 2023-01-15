@@ -4,12 +4,11 @@ import java.text.NumberFormat;
 import java.util.Locale;
 
 public class dataticket {
-    String maskapai;
-    String awal;
-    String tujuan;
-    String tanggal;
-    double harga;
-
+    protected String maskapai;
+    protected String awal;
+    protected String tujuan;
+    protected String tanggal;
+    protected double harga;
     Locale localeID = new Locale("in", "ID");
     NumberFormat numForm = NumberFormat.getCurrencyInstance(localeID);
 
@@ -24,7 +23,18 @@ public class dataticket {
     public String getMaskapai() {
         return maskapai;
     }
-
+    public String getAwal(){
+        return awal;
+    }
+    public String getTujuan(){
+        return tujuan;
+    }
+    public String getTanggal(){
+        return tanggal;
+    }
+    public Double getHarga(){
+        return harga;
+    }
     public void setMaskapai(String maskapai) {
         this.maskapai = maskapai;
     }
