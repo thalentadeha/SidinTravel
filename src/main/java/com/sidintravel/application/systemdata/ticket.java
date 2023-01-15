@@ -16,7 +16,7 @@ public class ticket {
         pesawat.add(new dataticket("Citilink", "Malang", "Jakarta", "tba", 1200000));
         pesawat.add(new dataticket("Garuda Indonesia", "Jakarta", "Bali", "tba", 2000000));
 
-        kereta.add(new dataticket("Kertanegara", "Malang", "Yogyakarta", "tba", 410000));
+        kereta.add(new dataticket("Kertanegara", "Malang", "Purwokerto", "tba", 410000));
         kereta.add(new dataticket("Argo Lawu", "Solo Balapan", "Gambir", "tba", 600000));
         kereta.add(new dataticket("Argo Wilis", "Bandung", "Surabaya", "tba", 540000));
     }
