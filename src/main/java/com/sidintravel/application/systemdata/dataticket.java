@@ -25,11 +25,11 @@ public class dataticket {
         this.harga = harga;
     }
 
-    public Integer getID() {
+    public Integer getId() {
         return id;
     }
 
-    public void setID() {
+    public void setId() {
         this.id = id;
     }
 

@@ -5,6 +5,10 @@
             <div th:case="'0'">
                 <form th:object="${newData}"method="post"th:action="@{/Admin/realAdd/postPesawat}">
                     <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">ID</label>
+                        <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"th:field="*{id}">
+                      </div>
+                    <div class="mb-3">
                       <label for="exampleInputEmail1" class="form-label">Maskapai</label>
                       <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"th:field="*{maskapai}">
                       <div id="emailHelp" class="form-text">Ingat maskapai ada tiga (pesawat -> Lion Air,Citilink, Garuda Indonesia),(Kereta -> Kertanegara, Argo Lawu, Argo Wilis),(Kereta -> Pahala Kencana, Lorena, Agramas)</div>
@@ -70,6 +74,11 @@
             <div th:case="'1'">
                 <form th:object="${newData}"method="post"th:action="@{/Admin/realAdd/postPesawat}">
                     <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">ID</label>
+                        <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"th:field="*{id}">
+                      </div>
+                    <div class="mb-3">
+                    <div class="mb-3">
                       <label for="exampleInputEmail1" class="form-label">Maskapai</label>
                       <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"th:field="*{maskapai}">
                       <div id="emailHelp" class="form-text">Ingat maskapai ada tiga (pesawat -> Lion Air,Citilink, Garuda Indonesia),(Kereta -> Kertanegara, Argo Lawu, Argo Wilis),(Kereta -> Pahala Kencana, Lorena, Agramas)</div>
@@ -121,6 +130,11 @@
             </div>
             <div th:case="'2'">
                 <form th:object="${newData}"method="post"th:action="@{/Admin/realAdd/postPesawat}">
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">ID</label>
+                        <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"th:field="*{id}">
+                      </div>
+                    <div class="mb-3">
                     <div class="mb-3">
                       <label for="exampleInputEmail1" class="form-label">Maskapai</label>
                       <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"th:field="*{maskapai}">
