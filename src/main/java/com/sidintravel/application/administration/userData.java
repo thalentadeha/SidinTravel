@@ -14,6 +14,7 @@ public class userData {
     protected String email;
     protected String password;
     protected Boolean isLogin = false;
+    protected Boolean isAdmin = false;
 
     // private HashMap<String, String> userpass = new HashMap<>(); // simpen
     // username password
@@ -50,8 +51,8 @@ public class userData {
     }
 
     // check untuk user admin
-    public boolean check(String email) {
-        if (email.equals("123")) {
+    public boolean check(String password) {
+        if (password.equals("123")) {
             return true;
         }
         return false;

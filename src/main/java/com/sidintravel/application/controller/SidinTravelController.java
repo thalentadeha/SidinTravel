@@ -116,4 +116,19 @@ public class SidinTravelController {
         return "error";
     }
 
+    @GetMapping("/Admin")
+    public String adminSidin(Model model) {
+        model.addAttribute("userdatalogin", new userdatalogin("", "", ""));
+        return "adminLogin";
+    }
+
+    @PostMapping("/Admin")
+    public String adminSidinpost(userdatalogin currAdmin,Model model) {
+        String tempPassword = (String) currAdmin.getPassword();
+        if(!dataUser.check(tempPassword)){
+            model.addAttribute("Error", "Anda bukan admin ya");
+            return "adminLogin";
+        }
+        return "redirect:/home";
+    }
 }

@@ -1,0 +1,21 @@
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"layout:decorate="~{layout}">
+    <body id="first_intro">
+        <div layout:fragment="content">
+          <div class="card kartuLoginadmin">
+            <div class="card-body">
+              <form th:object="${userdatalogin}"method="post"th:action="@{/Admin}">
+                <h4>Password</h4>
+                <input type="password"class="form-control"id="password_form_login"name="password"th:field="*{password}">
+                <br><br>
+                <button type="submit" class="btn btn-outline-primary"id="buttonLogin">Login</button>
+                <span th:if="${Error != null}">
+                  <div class="alert alert-danger" role="alert"th:text="${Error}">
+                    A simple danger alert—check it out!
+                  </div>
+                </span>
+              </form>
+            </div>
+          </div>
+        </div>
+    </body>
+</html>
