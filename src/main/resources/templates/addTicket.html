@@ -23,7 +23,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputEmail3" class="form-label">Jam</label>
-                        <input type="date" class="form-control" id="exampleInputEmail3" aria-describedby="emailHelp"th:field="*{jam}">
+                        <input type="text" class="form-control" id="exampleInputEmail3" aria-describedby="emailHelp"th:field="*{jam}">
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputEmail3" class="form-label">Harga</label>
@@ -72,7 +72,7 @@
                   </form>
             </div>
             <div th:case="'1'">
-                <form th:object="${newData}"method="post"th:action="@{/Admin/realAdd/postPesawat}">
+                <form th:object="${newData}"method="post"th:action="@{/Admin/realAdd/postKereta}">
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">ID</label>
                         <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"th:field="*{id}">
@@ -93,7 +93,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputEmail3" class="form-label">Jam</label>
-                        <input type="date" class="form-control" id="exampleInputEmail3" aria-describedby="emailHelp"th:field="*{jam}">
+                        <input type="text" class="form-control" id="exampleInputEmail3" aria-describedby="emailHelp"th:field="*{jam}">
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputEmail3" class="form-label">Harga</label>
@@ -129,7 +129,7 @@
                   </form>
             </div>
             <div th:case="'2'">
-                <form th:object="${newData}"method="post"th:action="@{/Admin/realAdd/postPesawat}">
+                <form th:object="${newData}"method="post"th:action="@{/Admin/realAdd/postBus}">
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">ID</label>
                         <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"th:field="*{id}">
@@ -150,7 +150,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputEmail3" class="form-label">Jam</label>
-                        <input type="date" class="form-control" id="exampleInputEmail3" aria-describedby="emailHelp"th:field="*{jam}">
+                        <input type="text" class="form-control" id="exampleInputEmail3" aria-describedby="emailHelp"th:field="*{jam}">
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputEmail3" class="form-label">Harga</label>
