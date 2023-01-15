@@ -11,31 +11,6 @@ public class dataTiketpesawat extends dataticket {
         this.Baggage = Baggage;
         this.Meal = Meal;
     }
-    @Override
-    public String getMaskapai() {
-        // TODO Auto-generated method stub
-        return super.getMaskapai();
-    }
-    @Override
-    public String getAwal() {
-        // TODO Auto-generated method stub
-        return super.getAwal();
-    }
-    @Override
-    public Double getHarga() {
-        // TODO Auto-generated method stub
-        return super.getHarga();
-    }
-    @Override
-    public String getJam() {
-        // TODO Auto-generated method stub
-        return super.getJam();
-    }
-    @Override
-    public String getTujuan() {
-        // TODO Auto-generated method stub
-        return super.getTujuan();
-    }
     public Integer getWiFi() {
         return this.WiFi;
     }
