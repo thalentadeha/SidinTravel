@@ -9,9 +9,9 @@ import com.sidintravel.application.administration.userdatalogin;
 public class data {
     private ArrayList<dataTiketbus> bis = new ArrayList<dataTiketbus>() {
         {
-            add(new dataTiketbus("Pahala Kencana", "Bandung", "Surabaya", "tba", 200000));
-            add(new dataTiketbus("Lorena", "Jakarta", "Malang", "tba", 300000));
-            add(new dataTiketbus("Harapan Baru", "Yogyakarta", "Jakarta", "tba", 150000));
+            add(new dataTiketbus("Pahala Kencana", "Bandung", "Surabaya", "tba", 200000,0));
+            add(new dataTiketbus("Lorena", "Jakarta", "Malang", "tba", 300000,1));
+            add(new dataTiketbus("Harapan Baru", "Yogyakarta", "Jakarta", "tba", 150000,0));
         }
     };
     private ArrayList<dataTiketpesawat> pesawat = new ArrayList<dataTiketpesawat>() {
@@ -24,9 +24,9 @@ public class data {
     };
     private ArrayList<dataTiketkereta> kereta = new ArrayList<dataTiketkereta>() {
         {
-            add(new dataTiketkereta("Kertanegara", "Malang", "Yogyakarta", "tba", 410000));
-            add(new dataTiketkereta("Argo Lawu", "Solo Balapan", "Gambir", "tba", 600000));
-            add(new dataTiketkereta("Argo Wilis", "Bandung", "Surabaya", "tba", 540000));
+            add(new dataTiketkereta("Kertanegara", "Malang", "Yogyakarta", "tba", 410000,1,1));
+            add(new dataTiketkereta("Argo Lawu", "Solo Balapan", "Gambir", "tba", 600000,0,0));
+            add(new dataTiketkereta("Argo Wilis", "Bandung", "Surabaya", "tba", 540000,0,1));
         }
     };
 
