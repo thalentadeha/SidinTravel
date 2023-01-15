@@ -134,9 +134,22 @@ public class SidinTravelController {
         }
         return "redirect:/Admin/Add";
     }
-
     @GetMapping("/Admin/Add")
-    public String adminSidinAdd(Model model) {
+    public String adminSidinAddmenu(@PathVariable("param") String param,Model model) {
+        return "adminAddmenu";
+    }
+    @GetMapping("/Admin/Add/{param}")
+    public String adminSidinAddspecific(@PathVariable("param") String param,Model model) {
+        if (param.equals("Bus")) {
+            model.addAttribute("tickets", new dataTiketbus("", "", "", "", 0, 0));
+            model.addAttribute("code", '2');
+        } else if (param.equals("Kereta")) {
+            model.addAttribute("newData", new dataTiketkereta("", "", "","", 0, 0, 0));
+            model.addAttribute("code", '1');
+        } else if (param.equals("Pesawat")) {
+            model.addAttribute("newData", new dataTiketpesawat("", "", "","",0,0,0,0));
+            model.addAttribute("code", '0');
+        }
         return "adminAddmenu";
     }
 }

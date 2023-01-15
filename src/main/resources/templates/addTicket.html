@@ -1,0 +1,41 @@
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"layout:decorate="~{layout}">
+    <body>
+        <div layout:fragment="content">
+            <td th:switch="${code}">
+            <div th:case="'0'">
+                <form>
+                    <div class="mb-3">
+                      <label for="exampleInputEmail1" class="form-label">Maskapai</label>
+                      <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                      <div id="emailHelp" class="form-text">Ingat maskapai ada tiga (pesawat -> Lion Air,Citilink, Garuda Indonesia),(Kereta -> Kertanegara, Argo Lawu, Argo Wilis),(Kereta -> Pahala Kencana, Lorena, Agramas)</div>
+                    </div>
+                    <div class="mb-3">
+                      <label for="exampleInputPassword1" class="form-label">Password</label>
+                      <input type="text" class="form-control" id="exampleInputPassword1">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail2" class="form-label">Email address</label>
+                        <input type="text" class="form-control" id="exampleInputEmail2" aria-describedby="emailHelp">
+                        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail3" class="form-label">Email address</label>
+                        <input type="text" class="form-control" id="exampleInputEmail3" aria-describedby="emailHelp">
+                        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                  </form>
+            </div>
+            <div th:case="'1'">
+
+            </div>
+            <div th:case="'2'">
+
+            </div>
+            <div th:case="'*'">
+                <h1>YNTKTS</h1>
+            </div>
+        </div>
+        </td>
+    </body>
+</html>
