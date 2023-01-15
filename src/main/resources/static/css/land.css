@@ -79,7 +79,7 @@ body{
 	margin-left: 20px;
 }
 
-.main-container header nav .menu .calltoaction button{
+.calltoaction button{
 	border: 1px solid #fff;
 	border-radius: 50px;
 	background: none;
@@ -92,7 +92,7 @@ body{
 	transition: .5s ease-in-out;
 }
 
-.main-container header nav .menu .calltoaction button:hover{
+.calltoaction button:hover{
 	background: #fff;
 	border: none;
 	color: #000;
@@ -146,7 +146,7 @@ body{
 }
 
 .expandMoreContent{
-    height: 50px;
+    height: 20px;
     overflow: hidden;
     transition: height .5s ease-in-out;
     position: relative;
@@ -164,8 +164,10 @@ body{
 
 .btn-expand-more{
     cursor: pointer;
-    border: 1px solid pink;
+    border: 1px solid rgb(0, 0, 0);
     display: inline-block;
+	border-radius:3px;
+	padding: 5px;
 }
 
 .container section .left .content .para{
