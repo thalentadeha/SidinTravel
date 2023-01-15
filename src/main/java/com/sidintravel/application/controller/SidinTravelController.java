@@ -21,6 +21,8 @@ public class SidinTravelController {
     private data dataTiket;
     @Autowired
     private userData dataUser;
+    @Autowired
+    private booking bookData;
 
     @GetMapping
     public String land(Model model) {
@@ -139,6 +141,18 @@ public class SidinTravelController {
         return "ticketview";
     }
 
+    @GetMapping("/buyticket")
+    public String buyTicketget(datareservasi dataBook, Model model) {
+        model.addAttribute("newBuy", new datareservasi("", 0, ""));
+        return "custBook";
+    }
+
+    @PostMapping("/buyticket")
+    public String buyTicketpost(datareservasi dataBook,
+            Model model) {
+        return "custBook";
+    }
+
     @GetMapping("/Sidinerror")
     public String siderror(Model model) {
         return "error";
@@ -164,23 +178,25 @@ public class SidinTravelController {
     public String adminSidinAddmenu(Model model) {
         return "adminAddmenu";
     }
+
     @GetMapping("/Admin/realAdd/{param}")
-    public String adminSidinAddspecific(@PathVariable("param") String param,Model model) {
+    public String adminSidinAddspecific(@PathVariable("param") String param, Model model) {
         if (param.equals("Bus")) {
-            model.addAttribute("newData", new dataTiketbus("", "", "", "", 0, 0));
+            model.addAttribute("newData", new dataTiketbus(0, "", "", "", "", 0, 0));
             model.addAttribute("code", '2');
         } else if (param.equals("Kereta")) {
-            model.addAttribute("newData", new dataTiketkereta("", "", "", "", 0, 0, 0));
+            model.addAttribute("newData", new dataTiketkereta(0, "", "", "", "", 0, 0, 0));
             model.addAttribute("code", '1');
         } else if (param.equals("Pesawat")) {
-            model.addAttribute("newData", new dataTiketpesawat("", "", "", "", 0, 0, 0, 0));
+            model.addAttribute("newData", new dataTiketpesawat(0, "", "", "", "", 0, 0, 0, 0));
             model.addAttribute("code", '0');
         }
         return "addTicket";
     }
+
     @PostMapping("/Admin/realAdd/postPesawat")
-    public String adminSidinAddspecificPost(@PathVariable("param") String param,Model model) {
-        
+    public String adminSidinAddspecificPost(@PathVariable("param") String param, Model model) {
+
         return "addTicket";
     }
 }

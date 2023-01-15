@@ -3,7 +3,10 @@ package com.sidintravel.application.systemdata;
 import java.text.NumberFormat;
 import java.util.Locale;
 
+import io.micrometer.observation.transport.Propagator.Getter;
+
 public class dataticket {
+    Integer id;
     String maskapai;
     String awal;
     String tujuan;
@@ -13,7 +16,8 @@ public class dataticket {
     Locale localeID = new Locale("in", "ID");
     NumberFormat numForm = NumberFormat.getCurrencyInstance(localeID);
 
-    public dataticket(String maskapai, String awal, String tujuan, String jam, double harga) {
+    public dataticket(Integer id, String maskapai, String awal, String tujuan, String jam, double harga) {
+        this.id = id;
         this.maskapai = maskapai;
         this.awal = awal;
         this.tujuan = tujuan;
@@ -21,21 +25,34 @@ public class dataticket {
         this.harga = harga;
     }
 
+    public Integer getID() {
+        return id;
+    }
+
+    public void setID() {
+        this.id = id;
+    }
+
     public String getMaskapai() {
         return maskapai;
     }
-    public String getAwal(){
+
+    public String getAwal() {
         return awal;
     }
-    public String getTujuan(){
+
+    public String getTujuan() {
         return tujuan;
     }
-    public String getJam(){
+
+    public String getJam() {
         return jam;
     }
-    public Double getHarga(){
+
+    public Double getHarga() {
         return harga;
     }
+
     public void setMaskapai(String maskapai) {
         this.maskapai = maskapai;
     }
