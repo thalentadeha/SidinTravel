@@ -2,6 +2,9 @@
     <body>
         <div layout:fragment="content">
             <td th:switch="${code}">
+                <!-- 
+                    INI PESAWAT 
+                -->
                 <div th:case="'0'">
                     <div k th:each="ticket : ${tickets}">
                         <a href="#"class="ticketsView">
@@ -61,6 +64,9 @@
                         </a>
                     </div>
                 </div>
+                <!-- 
+                    INI KERETA 
+                -->
             <div th:case="'1'">
                 <div k th:each="ticket : ${tickets}">
                     <a href="#"class="ticketsView">
@@ -99,6 +105,9 @@
                     </a>
                 </div>
             </div>
+            <!-- 
+                    INI BUS 
+                -->
             <div th:case="'2'">
                 <div k th:each="ticket : ${tickets}">
                     <a href="#"class="ticketsView">
@@ -122,6 +131,15 @@
                                 </div>
                                 <div class="col">
                                     <h3 class="card-title"id="title"th:text="${ticket.maskapai}"></h3>
+                                    <div th:if="${ticket.maskapai == 'Pahala Kencana'}">
+                                        <img src="/image/pahala-kencana-logo.png">
+                                    </div>
+                                    <div th:if="${ticket.maskapai == 'Lorena'}">
+                                        <img src="/image/LOGO-LORENA-PNG.png">
+                                    </div>
+                                    <div th:if="${ticket.maskapai == 'Agramas'}">
+                                        <img src="/image/Logo-agramas.png">
+                                    </div>
                                     <h4 style="margin-bottom:1rem;margin-top:4rem;">Harga: <span th:text="${ticket.harga}"></span></h4>
                                 </div>
                             </div>
