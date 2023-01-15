@@ -45,6 +45,15 @@
                                     </div>
                                     <div class="col">
                                         <h3 class="card-title"id="title"th:text="${ticket.maskapai}"></h3>
+                                        <div th:if="${ticket.maskapai == 'Lion Air'}">
+                                            <img src="/image/Lion_air_logo.png" style="display: inline-block;margin-right:3rem;">
+                                        </div>
+                                        <div th:if="${ticket.maskapai == 'Citilink'}">
+                                            <img src="/image/Citilink_logo.png" style="display: inline-block;margin-right:3rem;">
+                                        </div>
+                                        <div th:if="${ticket.maskapai == 'Garuda Indonesia'}">
+                                            <img src="/image/Garuda_Ind_logo.png" style="display: inline-block;margin-right:3rem;">
+                                        </div>
                                         <h4 style="margin-bottom:1rem;margin-top:4rem;">Harga: <span th:text="${ticket.harga}"></span></h4>
                                     </div>
                                 </div>
