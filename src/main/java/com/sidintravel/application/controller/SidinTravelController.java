@@ -31,7 +31,7 @@ public class SidinTravelController {
 
     @GetMapping("/login")
     public String logs(Model model) {
-        model.addAttribute("userdatalogin", new userdatalogin("", "", "", false));
+        model.addAttribute("userdatalogin", new userdatalogin("", "", "",false));
         Boolean isLogin = dataUser.checkisLogin();
         if (!isLogin) {
             return "login";
@@ -116,7 +116,7 @@ public class SidinTravelController {
 
     @GetMapping("/lupa_pass")
     public String lupapass(Model model) {
-        model.addAttribute("userdatalogin", new userdatalogin("", "", "", false));
+        model.addAttribute("userdatalogin", new userdatalogin("", "", "",false));
         Boolean isLogin = dataUser.checkisLogin();
         if (!isLogin) {
             return "lupa_pass";
@@ -178,7 +178,8 @@ public class SidinTravelController {
 
     @GetMapping("/Admin")
     public String adminSidin(Model model) {
-        model.addAttribute("userdatalogin", new userdatalogin("", "", "", false));
+        model.addAttribute("userdatalogin", new userdatalogin("", "", "",false));
+        model.addAttribute("isAdmin", dataUser.getisAdmin());
         return "adminLogin";
     }
 
@@ -196,7 +197,6 @@ public class SidinTravelController {
     public String adminSidinUpdatemenu(Model model) {
         return "adminUpdatemenu";
     }
-
     @GetMapping("/Admin/realUpdate/{param}")
     public String adminSidinUpdatespecific(@PathVariable("param") String param, Model model) {
         if (param.equals("Bus")) {
@@ -211,28 +211,24 @@ public class SidinTravelController {
         }
         return "updateTicket";
     }
-
     @PostMapping("/Admin/realUpdate/postPesawat")
     public String adminSidinUpdatespecificPostpesawat(dataTiketpesawat newData, Model model) {
         dataTiket.addPesawat(newData);
         model.addAttribute("Success", "SSSIIIIUUUUU Berhasil tambah tiket pesawatnya");
         return "redirect:/Admin/Add";
     }
-
     @PostMapping("/Admin/realUpdate/postKereta")
-    public String adminSidinUpdatespecificPostkereta(dataTiketkereta newData, Model model) {
+    public String adminSidinUpdatespecificPostkereta(dataTiketkereta newData,Model model) {
         dataTiket.addKereta(newData);
         model.addAttribute("Success", "SSSIIIIUUUUU Berhasil tambah tiket keretanya");
         return "redirect:/Admin/Add";
     }
-
     @PostMapping("/Admin/realUpdate/postBus")
     public String adminSidinUpdatespecificPostbus(dataTiketbus newData, Model model) {
         dataTiket.addBus(newData);
         model.addAttribute("Success", "SSSIIIIUUUUU Berhasil tambah tiket Busnya");
         return "redirect:/Admin/Add";
     }
-
     @GetMapping("/Admin/Add")
     public String adminSidinAddmenu(Model model) {
         return "adminAddmenu";
@@ -259,24 +255,27 @@ public class SidinTravelController {
         model.addAttribute("Success", "SSSIIIIUUUUU Berhasil tambah tiket pesawatnya");
         return "redirect:/Admin/Add";
     }
-
     @PostMapping("/Admin/realAdd/postKereta")
-    public String adminSidinAddspecificPostkereta(dataTiketkereta newData, Model model) {
+    public String adminSidinAddspecificPostkereta(dataTiketkereta newData,Model model) {
         dataTiket.addKereta(newData);
         model.addAttribute("Success", "SSSIIIIUUUUU Berhasil tambah tiket keretanya");
         return "redirect:/Admin/Add";
     }
-
     @PostMapping("/Admin/realAdd/postBus")
     public String adminSidinAddspecificPostbus(dataTiketbus newData, Model model) {
         dataTiket.addBus(newData);
         model.addAttribute("Success", "SSSIIIIUUUUU Berhasil tambah tiket Busnya");
         return "redirect:/Admin/Add";
     }
-
     @GetMapping("/logout")
-    public String Logout(Model model) {
+    public String Logout(Model model){
         dataUser.nowisLogout();
         return "redirect:/";
+    }
+
+    @GetMapping("/payment")
+    public String payment(Model model){
+        return "payment";
+        
     }
 }

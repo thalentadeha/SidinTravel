@@ -85,6 +85,10 @@ public class userData {
         return false;
     }
 
+    public boolean getisAdmin() {
+        return this.isAdmin;
+    }
+
     public boolean checkisLogin() {
         return isLogin;
     }
