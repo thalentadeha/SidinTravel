@@ -11,22 +11,35 @@
 <style>
     .kotak{
         border-radius: 10px;
+        background-color: antiquewhite;
+        padding: 0 1rem 1rem 1rem;
+        margin-top: 6rem;
+    }
+    .pos{
+        margin-top: 5rem;
+    }
+    .shade{
+        box-shadow: 2px 3px 1px black;
     }
 </style>
     <body>
       <div class="container-fluid">
-        <div class="container bg-primary text-center kotak">
-            <div class="container">
-                <h1 class="mt-5">Payment</h1>
-                <div class="row">
+        <div class="container kotak">
+            <div class="mb-5">
+                <h1 class="mt-5 p-4 text-center">Payment</h1>
+                <div class="row mt-5 p-4">
                     <div class="col">
-                        <h2>ini gambar</h2>
+                        <img src="https://images.unsplash.com/photo-1556742077-0a6b6a4a4ac4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+                         class="img-thumbnail shade" alt="">
                     </div>
-                    <div class="col">
-                        <div class="input-group input-group-sm mb-3">
-                            <span class="input-group-text" id="inputGroup-sizing-sm">Small</span>
-                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-                          </div>
+                    <div class="col text-center pos">
+                        <div class="input-group input-group-lg mb-3">
+                            <span class="input-group-text" id="inputGroup-sizing-lg">Rp</span>
+                            <input type="text" class="form-control" aria-label="Amount (to the nearest IDR)" aria-describedby="inputGroup-sizing-lg">
+                        </div>
+                        <div style="text-align:right;padding-right: 2px;">
+                            <button type="button" class="btn btn-secondary btn-lg">Submit</button>
+                        </div>  
                     </div>
                 </div>
             </div>
