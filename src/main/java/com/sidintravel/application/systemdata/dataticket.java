@@ -49,8 +49,8 @@ public class dataticket {
         return jam;
     }
 
-    public Double getHarga() {
-        return harga;
+    public String getHarga() {
+        return numForm.format(harga);
     }
 
     public void setMaskapai(String maskapai) {

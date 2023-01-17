@@ -1,16 +1,16 @@
 package com.sidintravel.application.administration;
 
-import org.springframework.expression.ConstructorExecutor;
-
-public class userdatalogin<T, U, V> {
+public class userdatalogin<T, U, V, W> {
     private final T username;
     private final U password;
     private final V email;
+    private W isNew;
 
-    public userdatalogin(T username, U password, V email) {
+    public userdatalogin(T username, U password, V email, W isNew) {
         this.username = username;
         this.password = password;
         this.email = email;
+        this.isNew = isNew;
     }
 
     public T getUsername() {
@@ -23,6 +23,14 @@ public class userdatalogin<T, U, V> {
 
     public V getEmail() {
         return this.email;
+    }
+
+    public W getIsNew() {
+        return this.isNew;
+    }
+
+    public void setIsNew(Boolean isNew) {
+        this.isNew = (W) isNew;
     }
 
 }

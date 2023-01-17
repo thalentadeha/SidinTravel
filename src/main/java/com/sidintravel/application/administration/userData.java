@@ -23,16 +23,34 @@ public class userData {
     // simpen username, email, password
     private ArrayList<userdatalogin> dataUser = new ArrayList<>() {
         {
-            add(new userdatalogin("Rahman", "1234qwerty", "rahman@gmail.com"));
+            add(new userdatalogin("Rahman", "1234qwerty", "rahman@gmail.com", false));
         }
     };
 
     public void changeisLogin() {
         this.isLogin = true;
     }
-    public void nowisLogout(){
+
+    public void nowisLogout() {
         this.isLogin = false;
         this.isAdmin = false;
+    }
+
+    public void changeisNew(String email) {
+        for (int i = 0; i < dataUser.size(); i++) {
+            if (dataUser.get(i).getEmail().equals(email)) {
+                dataUser.get(i).setIsNew(true);
+                ;
+            }
+        }
+    }
+
+    public void changeisOld(String email) {
+        for (int i = 0; i < dataUser.size(); i++) {
+            if (dataUser.get(i).getEmail().equals(email)) {
+                dataUser.get(i).setIsNew(false);
+            }
+        }
     }
 
     // check untuk user biasa

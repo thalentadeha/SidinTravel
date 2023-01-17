@@ -34,13 +34,13 @@ public class loginsystem {
     }
 
     // register
-    public boolean register(String username, String email, String password) {
+    public boolean register(String username, String email, String password, Boolean isNew) {
         if (!checkEmailAvailability(email)) {
             System.out.println("Email sudah terpakai atau format salah");
         } else if (!checkUserAvailability(username)) {
             System.out.println("Username sudah terpakai");
         } else {
-            userdatalogin temp = new userdatalogin(username, password, email);
+            userdatalogin temp = new userdatalogin(username, password, email, isNew);
             dataUser.add(temp);
             System.out.println(dataUser.size());
             System.out.println("data ditambah ");
