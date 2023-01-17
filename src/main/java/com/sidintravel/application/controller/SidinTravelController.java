@@ -194,7 +194,7 @@ public class SidinTravelController {
 
     @GetMapping("/Admin/Update")
     public String adminSidinUpdatemenu(Model model) {
-        return "adminAddmenu";
+        return "adminUpdatemenu";
     }
     @GetMapping("/Admin/realUpdate/{param}")
     public String adminSidinUpdatespecific(@PathVariable("param") String param, Model model) {
@@ -208,7 +208,7 @@ public class SidinTravelController {
             model.addAttribute("newData", new dataTiketpesawat(0, "", "", "", "", 0, 0, 0, 0));
             model.addAttribute("code", '0');
         }
-        return "addTicket";
+        return "updateTicket";
     }
     @PostMapping("/Admin/realUpdate/postPesawat")
     public String adminSidinUpdatespecificPostpesawat(dataTiketpesawat newData, Model model) {
