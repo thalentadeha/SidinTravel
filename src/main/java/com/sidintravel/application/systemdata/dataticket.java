@@ -12,6 +12,7 @@ public class dataticket {
     String tujuan;
     String jam;
     double harga;
+    int a;
 
     Locale localeID = new Locale("in", "ID");
     NumberFormat numForm = NumberFormat.getCurrencyInstance(localeID);
