@@ -197,6 +197,11 @@ public class SidinTravelController {
         return "payment";
     }
 
+    @GetMapping("/myBooking")
+    public String myBooking(Model model) {
+
+    }
+
     @GetMapping("/Sidinerror")
     public String siderror(Model model) {
         return "error";
