@@ -15,7 +15,7 @@ public class dataticket {
     int a;
 
     Locale localeID = new Locale("in", "ID");
-    NumberFormat numForm = NumberFormat.getCurrencyInstance();
+    NumberFormat numForm = NumberFormat.getCurrencyInstance(localeID);
 
     public dataticket(Integer id, String maskapai, String awal, String tujuan, String jam, String harga) {
         this.id = id;
@@ -51,7 +51,7 @@ public class dataticket {
     }
 
     public String getHarga() {
-        return numForm.format(harga);
+        return numForm.format(Double.parseDouble(harga));
     }
 
     public void setMaskapai(String maskapai) {

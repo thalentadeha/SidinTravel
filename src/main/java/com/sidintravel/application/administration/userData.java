@@ -13,8 +13,9 @@ public class userData {
     protected String username;
     protected String email;
     protected String password;
-    protected Boolean isLogin = false;
+    protected Boolean isLogin = true;
     protected Boolean isAdmin = false;
+    protected String tempEmail;
 
     // private HashMap<String, String> userpass = new HashMap<>(); // simpen
     // username password
@@ -53,8 +54,24 @@ public class userData {
         }
     }
 
+    public Boolean checkisNeW() {
+        Boolean isNew_result = false;
+        for (int i = 0; i < dataUser.size(); i++) {
+            if (dataUser.get(i).getEmail().equals(tempEmail)) {
+                isNew_result = (Boolean) dataUser.get(i).getIsNew();
+            }
+        }
+
+        if (isNew_result == true) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     // check untuk user biasa
     public boolean check(String email, String password) {
+        tempEmail = email;
         for (int i = 0; i < dataUser.size(); i++) {
             if (dataUser.get(i).getEmail().equals(email)) {
                 if (dataUser.get(i).getPassword().equals(password)) {
@@ -69,6 +86,7 @@ public class userData {
     }
 
     public String getPassword(String email) {
+        tempEmail = email;
         for (int i = 0; i < dataUser.size(); i++) {
             if (dataUser.get(i).getEmail().equals(email)) {
                 return (String) dataUser.get(i).getPassword();
@@ -101,6 +119,7 @@ public class userData {
 
     // check available email
     public boolean checkEmailAvailability(String email) {
+        tempEmail = email;
         if (dataUser.size() == 0) {
             if (email.contains("@")) {
                 return true;
@@ -129,6 +148,15 @@ public class userData {
             }
         }
         return true;
+    }
+
+    public void getDiscount() {
+        // double
+        for (int i = 0; i < dataUser.size(); i++) {
+            if (dataUser.get(i).getEmail().equals(tempEmail)) {
+
+            }
+        }
     }
 
     static <T, V> void giveError(T param1, Model model) {
