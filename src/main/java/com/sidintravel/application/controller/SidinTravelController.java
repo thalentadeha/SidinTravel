@@ -162,16 +162,26 @@ public class SidinTravelController {
         return "ticketview";
     }
 
-
     @GetMapping("/buyticket/{param1}/{param2}")
-    public String buyTicketget(@PathVariable("param1") String param1,@PathVariable("param2") String param2,datareservasi dataRes, Model model) {
-
+    public String buyTicketget(@PathVariable("param1") String param1, @PathVariable("param2") String param2,
+            datareservasi dataRes, Model model) {
         model.addAttribute("newBuy", new datareservasi("", 0, ""));
+        if (param1.equals("bus")) {
+            model.addAttribute("tickets", dataTiket.showBuyBis(Integer.parseInt(param2)));
+            model.addAttribute("code", '2');
+        } else if (param1.equals("kereta")) {
+            model.addAttribute("tickets", dataTiket.showBuyKereta(Integer.parseInt(param2)));
+            model.addAttribute("code", '1');
+        } else if (param1.equals("pesawat")) {
+            model.addAttribute("tickets", dataTiket.showBuyPesawat(Integer.parseInt(param2)));
+            model.addAttribute("code", '0');
+        }
         return "custBook";
     }
 
     @PostMapping("/buyticket/{param1}/{param2}")
-    public String buyTicketpost(@PathVariable("param1") String param1,@PathVariable("param2") String param2,datareservasi dataRes,
+    public String buyTicketpost(@PathVariable("param1") String param1, @PathVariable("param2") String param2,
+            datareservasi dataRes,
 
             Model model) {
         model.addAttribute("dataRes", dataRes);
@@ -210,6 +220,7 @@ public class SidinTravelController {
         }
         return "redirect:/Admin/Add";
     }
+
     @GetMapping("/Admin/Delete")
     public String adminSidinDeletemenu(Model model) {
         return "adminDeletemenu";
@@ -232,7 +243,7 @@ public class SidinTravelController {
 
     @PostMapping("/Admin/realDelete/postPesawat")
     public String adminSidinDeletespecificPostpesawat(dataTiketpesawat newData, Model model) {
-        if(!dataTiket.checkIDpesawat(newData.getId())){
+        if (!dataTiket.checkIDpesawat(newData.getId())) {
             model.addAttribute("newData", new dataTiketpesawat(0, "", "", "", "", "0", 0, 0, 0));
             model.addAttribute("code", '0');
             model.addAttribute("Error", "Id tidak ditemukan");
@@ -247,22 +258,23 @@ public class SidinTravelController {
 
     @PostMapping("/Admin/realDelete/postKereta")
     public String adminSidinDeletespecificPostkereta(dataTiketkereta newData, Model model) {
-        if(!dataTiket.checkIDkereta(newData.getId())){
+        if (!dataTiket.checkIDkereta(newData.getId())) {
             model.addAttribute("newData", new dataTiketpesawat(0, "", "", "", "", "0", 0, 0, 0));
             model.addAttribute("code", '1');
             model.addAttribute("Error", "Id tidak ditemukan");
             return "deleteTicket";
         }
-        dataTiket.removeKereta(newData.getId());;
+        dataTiket.removeKereta(newData.getId());
+        ;
         model.addAttribute("newData", new dataTiketpesawat(0, "", "", "", "", "0", 0, 0, 0));
-            model.addAttribute("code", '1');
+        model.addAttribute("code", '1');
         model.addAttribute("Success", "SSSIIIIUUUUU Berhasil delete tiket keretanya");
         return "deleteTicket";
     }
 
     @PostMapping("/Admin/realDelete/postBus")
     public String adminSidinDeletepecificPostbus(dataTiketbus newData, Model model) {
-        if(!dataTiket.checkIDbus(newData.getId())){
+        if (!dataTiket.checkIDbus(newData.getId())) {
             model.addAttribute("newData", new dataTiketbus(0, "", "", "", "", "0", 0));
             model.addAttribute("code", '2');
             model.addAttribute("Error", "Id tidak ditemukan");
@@ -274,7 +286,6 @@ public class SidinTravelController {
         model.addAttribute("Success", "SSSIIIIUUUUU Berhasil delete tiket Busnya");
         return "deleteTicket";
     }
-
 
     @GetMapping("/Admin/Update")
     public String adminSidinUpdatemenu(Model model) {
@@ -298,7 +309,7 @@ public class SidinTravelController {
 
     @PostMapping("/Admin/realUpdate/postPesawat")
     public String adminSidinUpdatespecificPostpesawat(dataTiketpesawat newData, Model model) {
-        if(!dataTiket.checkIDpesawat(newData.getId())){
+        if (!dataTiket.checkIDpesawat(newData.getId())) {
             model.addAttribute("newData", new dataTiketpesawat(0, "", "", "", "", "0", 0, 0, 0));
             model.addAttribute("code", '0');
             model.addAttribute("Error", "Id tidak ditemukan");
@@ -314,7 +325,7 @@ public class SidinTravelController {
 
     @PostMapping("/Admin/realUpdate/postKereta")
     public String adminSidinUpdatespecificPostkereta(dataTiketkereta newData, Model model) {
-        if(!dataTiket.checkIDkereta(newData.getId())){
+        if (!dataTiket.checkIDkereta(newData.getId())) {
             model.addAttribute("newData", new dataTiketpesawat(0, "", "", "", "", "0", 0, 0, 0));
             model.addAttribute("code", '1');
             model.addAttribute("Error", "Id tidak ditemukan");
@@ -323,14 +334,14 @@ public class SidinTravelController {
         dataTiket.removeKereta(newData.getId());
         dataTiket.addKereta(newData);
         model.addAttribute("newData", new dataTiketpesawat(0, "", "", "", "", "0", 0, 0, 0));
-            model.addAttribute("code", '1');
+        model.addAttribute("code", '1');
         model.addAttribute("Success", "SSSIIIIUUUUU Berhasil update tiket keretanya");
         return "updateTicket";
     }
 
     @PostMapping("/Admin/realUpdate/postBus")
     public String adminSidinUpdatespecificPostbus(dataTiketbus newData, Model model) {
-        if(!dataTiket.checkIDbus(newData.getId())){
+        if (!dataTiket.checkIDbus(newData.getId())) {
             model.addAttribute("newData", new dataTiketbus(0, "", "", "", "", "0", 0));
             model.addAttribute("code", '2');
             model.addAttribute("Error", "Id tidak ditemukan");
@@ -366,7 +377,7 @@ public class SidinTravelController {
 
     @PostMapping("/Admin/realAdd/postPesawat")
     public String adminSidinAddspecificPostpesawat(dataTiketpesawat newData, Model model) {
-        if(dataTiket.checkIDpesawat(newData.getId())){
+        if (dataTiket.checkIDpesawat(newData.getId())) {
             model.addAttribute("newData", new dataTiketpesawat(0, "", "", "", "", "0", 0, 0, 0));
             model.addAttribute("code", '0');
             model.addAttribute("Error", "Id sudah terpakai");
@@ -381,7 +392,7 @@ public class SidinTravelController {
 
     @PostMapping("/Admin/realAdd/postKereta")
     public String adminSidinAddspecificPostkereta(dataTiketkereta newData, Model model) {
-        if(dataTiket.checkIDkereta(newData.getId())){
+        if (dataTiket.checkIDkereta(newData.getId())) {
             model.addAttribute("newData", new dataTiketpesawat(0, "", "", "", "", "0", 0, 0, 0));
             model.addAttribute("code", '1');
             model.addAttribute("Error", "Id sudah terpakai");
@@ -396,7 +407,7 @@ public class SidinTravelController {
 
     @PostMapping("/Admin/realAdd/postBus")
     public String adminSidinAddspecificPostbus(dataTiketbus newData, Model model) {
-        if(dataTiket.checkIDbus(newData.getId())){
+        if (dataTiket.checkIDbus(newData.getId())) {
             model.addAttribute("newData", new dataTiketbus(0, "", "", "", "", "0", 0));
             model.addAttribute("code", '2');
             model.addAttribute("Error", "Id tidak ditemukan");
