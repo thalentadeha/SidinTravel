@@ -105,6 +105,36 @@ public class data {
         bis.add(Temp);
     }
 
+    public dataTiketbus showBuyBis(Integer idtemp) {
+        int k = 0;
+        for (int i = 0; i < bis.size(); i++) {
+            if (bis.get(i).getId() == idtemp) {
+                k = i;
+            }
+        }
+        return bis.get(k);
+    }
+
+    public dataTiketkereta showBuyKereta(Integer idtemp) {
+        int k = 0;
+        for (int i = 0; i < kereta.size(); i++) {
+            if (kereta.get(i).getId() == idtemp) {
+                k = i;
+            }
+        }
+        return kereta.get(k);
+    }
+
+    public dataTiketpesawat showBuyPesawat(Integer idtemp) {
+        int k = 0;
+        for (int i = 0; i < pesawat.size(); i++) {
+            if (pesawat.get(i).getId() == idtemp) {
+                k = i;
+            }
+        }
+        return pesawat.get(k);
+    }
+
     public List<dataTiketbus> showBis() {
         return bis;
     }

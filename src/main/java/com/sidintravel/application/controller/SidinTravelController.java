@@ -167,13 +167,13 @@ public class SidinTravelController {
             datareservasi dataRes, Model model) {
         model.addAttribute("newBuy", new datareservasi("", 0, ""));
         if (param1.equals("Bus")) {
-            model.addAttribute("tickets", dataTiket.showBis());
+            model.addAttribute("tickets", dataTiket.showBuyBis(Integer.parseInt(param2)));
             model.addAttribute("code", '2');
         } else if (param1.equals("Kereta")) {
-            model.addAttribute("tickets", dataTiket.showKereta());
+            model.addAttribute("ticket", dataTiket.showBuyKereta(Integer.parseInt(param2)));
             model.addAttribute("code", '1');
         } else if (param1.equals("Pesawat")) {
-            model.addAttribute("tickets", dataTiket.showPesawat());
+            model.addAttribute("ticket", dataTiket.showBuyPesawat(Integer.parseInt(param2)));
             model.addAttribute("code", '0');
         }
         return "custBook";
