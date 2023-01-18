@@ -1,6 +1,16 @@
 <html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"layout:decorate="~{layout}">
     <body>
         <div layout:fragment="content">
+          <span th:if="${Success != null}">
+            <div class="alert alert-success" role="alert"th:text="${Success}">
+              
+            </div>
+          </span>
+          <span th:if="${Error != null}">
+            <div class="alert alert-danger" role="alert"th:text="${Error}">
+              
+            </div>
+          </span>
             <td th:switch="${code}">
             <div th:case="'0'">
                 <form th:object="${newData}"method="post"th:action="@{/Admin/realAdd/postPesawat}">
