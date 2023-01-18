@@ -27,7 +27,7 @@
                         -->
                         <div th:case="'0'">
                             <div k th:each="ticket : ${tickets}">
-                                <a th:href="@{/buyticket/pesawat/{id}(id=${ticket.id})}" class="ticketsView">
+                                <a class="ticketsView">
                                     <div class="card-body shadow p-3 mb-5 bg-body rounded" >
                                         <div class="row">
                                             <div class="col">
@@ -89,7 +89,7 @@
                         -->
                     <div th:case="'1'">
                         <div k th:each="ticket : ${tickets}">
-                            <a th:href="@{/buyticket/kereta/{id}(id=${ticket.id})}"class="ticketsView">
+                            <a class="ticketsView">
                                 <div class="card-body shadow p-3 mb-5 bg-body rounded">
                                     <div class="row">
                                         <div class="col">
@@ -133,7 +133,7 @@
                         -->
                     <div th:case="'2'">
                         <div k th:each="ticket : ${tickets}">
-                            <a th:href="@{/buyticket/bus/{id}(id=${ticket.id})}"class="ticketsView">
+                            <a class="ticketsView">
                                 <div class="card-body shadow p-3 mb-5 bg-body rounded">
                                     <div class="row">
                                         <div class="col">
