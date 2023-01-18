@@ -29,69 +29,82 @@ public class data {
             add(new dataTiketkereta(3, "Argo Wilis", "Bandung", "Surabaya", "22:35", "540000", 0, 1));
         }
     };
-    public boolean checkIDpesawat(Integer tempId){
-        for(int i=0;i<pesawat.size();i++){
-            if(pesawat.get(i).id == tempId){
+
+    public boolean checkIDpesawat(Integer tempId) {
+        for (int i = 0; i < pesawat.size(); i++) {
+            if (pesawat.get(i).id == tempId) {
                 return true;
             }
         }
         return false;
     }
-    public boolean checkIDkereta(Integer tempId){
-        for(int i=0;i<kereta.size();i++){
-            if(kereta.get(i).id == tempId){
+
+    public boolean checkIDkereta(Integer tempId) {
+        for (int i = 0; i < kereta.size(); i++) {
+            if (kereta.get(i).id == tempId) {
                 return true;
             }
         }
         return false;
     }
-    public boolean checkIDbus(Integer tempId){
-        for(int i=0;i<bis.size();i++){
-            if(bis.get(i).id == tempId){
+
+    public boolean checkIDbus(Integer tempId) {
+        for (int i = 0; i < bis.size(); i++) {
+            if (bis.get(i).id == tempId) {
                 return true;
             }
         }
         return false;
     }
-    public void addTicket(dataTiketpesawat Temp){
+
+    public void addPesawat(dataTiketpesawat Temp) {
         pesawat.add(Temp);
     }
-    public void addTicket(dataTiketkereta Temp){
+
+    public void addKereta(dataTiketkereta Temp) {
         kereta.add(Temp);
     }
-    public void addTicket(dataTiketbus Temp){
+
+    public void addBus(dataTiketbus Temp) {
         bis.add(Temp);
     }
-    public void removeBus(Integer tempId){
-        for(int i=0;i<bis.size();i++){
-            if(bis.get(i).id == tempId){
+
+    public void removeBus(Integer tempId) {
+        for (int i = 0; i < bis.size(); i++) {
+            if (bis.get(i).id == tempId) {
                 bis.remove(i);
             }
         }
     }
-    public void removeKereta(Integer tempId){
-        for(int i=0;i<kereta.size();i++){
-            if(kereta.get(i).id == tempId){
+
+    public void removeKereta(Integer tempId) {
+        for (int i = 0; i < kereta.size(); i++) {
+            if (kereta.get(i).id == tempId) {
                 kereta.remove(i);
             }
         }
     }
-    public void removePesawat(Integer tempId){
-        for(int i=0;i<pesawat.size();i++){
-            if(pesawat.get(i).id == tempId){
+
+    public void removePesawat(Integer tempId) {
+        for (int i = 0; i < pesawat.size(); i++) {
+            if (pesawat.get(i).id == tempId) {
                 pesawat.remove(i);
             }
         }
     }
-    public void deletePesawat(dataTiketpesawat Temp){
+
+    public void deletePesawat(dataTiketpesawat Temp) {
         pesawat.add(Temp);
     }
-    public void deleteKereta(dataTiketkereta Temp){
+
+    public void deleteKereta(dataTiketkereta Temp) {
         kereta.add(Temp);
     }
-    public void deleteBus(dataTiketbus Temp){
+
+    public void deleteBus(dataTiketbus Temp) {
         bis.add(Temp);
     }
+
     public List<dataTiketbus> showBis() {
         return bis;
     }
