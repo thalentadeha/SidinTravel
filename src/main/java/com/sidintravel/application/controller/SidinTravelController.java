@@ -165,7 +165,7 @@ public class SidinTravelController {
     @GetMapping("/buyticket/{param1}/{param2}")
     public String buyTicketget(@PathVariable("param1") String param1, @PathVariable("param2") String param2,
             datareservasi dataRes, Model model) {
-        model.addAttribute("newBuy", new datareservasi("", 0, ""));
+        model.addAttribute("newBuy", new datareservasi("", 0, 0, 0));
         if (param1.equals("bus")) {
             model.addAttribute("tickets", dataTiket.showBuyBis(Integer.parseInt(param2)));
             model.addAttribute("code", '2');
@@ -181,22 +181,20 @@ public class SidinTravelController {
 
     @PostMapping("/buyticket/{param1}/{param2}")
     public String buyTicketpost(@PathVariable("param1") String param1, @PathVariable("param2") String param2,
-            datareservasi dataRes,
-
-            Model model) {
+            datareservasi dataRes, Model model) {
         model.addAttribute("dataRes", dataRes);
         bookData.addBooking(dataRes);
+        if (param1.equals("bus")) {
+            dataRes.setidCode(2);
+            dataRes.setidTiket(Integer.parseInt(param2));
+        } else if (param1.equals("kereta")) {
+            dataRes.setidCode(1);
+            dataRes.setidTiket(Integer.parseInt(param2));
+        } else if (param1.equals("pesawat")) {
+            dataRes.setidCode(0);
+            dataRes.setidTiket(Integer.parseInt(param2));
+        }
         return "payment";
-    }
-
-    @GetMapping("/payment")
-    public String payment(datareservasi dataRes, dataticket data_ticket) {
-        return "payment";
-    }
-
-    @PostMapping("/payment")
-    public String paymentpost(datareservasi dataRes, data data_ticket) {
-        return "mybooking";
     }
 
     @GetMapping("/Sidinerror")
