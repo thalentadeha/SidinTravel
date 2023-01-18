@@ -166,14 +166,14 @@ public class SidinTravelController {
     public String buyTicketget(@PathVariable("param1") String param1, @PathVariable("param2") String param2,
             datareservasi dataRes, Model model) {
         model.addAttribute("newBuy", new datareservasi("", 0, ""));
-        if (param1.equals("Bus")) {
-            model.addAttribute("tickets", dataTiket.showBis());
+        if (param1.equals("bus")) {
+            model.addAttribute("tickets", dataTiket.showBuyBis(Integer.parseInt(param2)));
             model.addAttribute("code", '2');
-        } else if (param1.equals("Kereta")) {
-            model.addAttribute("tickets", dataTiket.showKereta());
+        } else if (param1.equals("kereta")) {
+            model.addAttribute("tickets", dataTiket.showBuyKereta(Integer.parseInt(param2)));
             model.addAttribute("code", '1');
-        } else if (param1.equals("Pesawat")) {
-            model.addAttribute("tickets", dataTiket.showPesawat());
+        } else if (param1.equals("pesawat")) {
+            model.addAttribute("tickets", dataTiket.showBuyPesawat(Integer.parseInt(param2)));
             model.addAttribute("code", '0');
         }
         return "custBook";
