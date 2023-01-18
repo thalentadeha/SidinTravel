@@ -197,11 +197,6 @@ public class SidinTravelController {
         return "payment";
     }
 
-    @GetMapping("/myBooking")
-    public String myBooking(datareservasi dataRes, dataticket data, Model model) {
-
-    }
-
     @GetMapping("/Sidinerror")
     public String siderror(Model model) {
         return "error";
