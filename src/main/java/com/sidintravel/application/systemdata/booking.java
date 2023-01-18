@@ -9,8 +9,8 @@ import org.springframework.stereotype.Service;
 public class booking {
     private ArrayList<datareservasi> reservasi = new ArrayList<datareservasi>();
 
-    public void addBooking() {
-
+    public void addBooking(datareservasi pembeli) {
+        reservasi.add(pembeli);
     }
 
     public List<datareservasi> getBooking() {

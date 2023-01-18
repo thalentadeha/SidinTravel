@@ -31,7 +31,7 @@ public class SidinTravelController {
 
     @GetMapping("/login")
     public String logs(Model model) {
-        model.addAttribute("userdatalogin", new userdatalogin("", "", "",false));
+        model.addAttribute("userdatalogin", new userdatalogin("", "", "", false));
         Boolean isLogin = dataUser.checkisLogin();
         if (!isLogin) {
             return "login";
@@ -116,7 +116,7 @@ public class SidinTravelController {
 
     @GetMapping("/lupa_pass")
     public String lupapass(Model model) {
-        model.addAttribute("userdatalogin", new userdatalogin("", "", "",false));
+        model.addAttribute("userdatalogin", new userdatalogin("", "", "", false));
         Boolean isLogin = dataUser.checkisLogin();
         if (!isLogin) {
             return "lupa_pass";
@@ -142,10 +142,13 @@ public class SidinTravelController {
     @GetMapping("viewticket/{param}")
     public String ticketView(@PathVariable("param") String param, Model model) {
         Boolean isLogin = dataUser.checkisLogin();
+        // Boolean isNew = dataUser.checkisNeW();
         if (!isLogin) {
             return "error";
         }
+        // if (isNew == true) {
 
+        // }
         if (param.equals("Bus")) {
             model.addAttribute("tickets", dataTiket.showBis());
             model.addAttribute("code", '2');
@@ -159,17 +162,31 @@ public class SidinTravelController {
         return "ticketview";
     }
 
+
     @GetMapping("/buyticket/{param1}/{param2}")
     public String buyTicketget(@PathVariable("param1") String param1,@PathVariable("param2") String param2,datareservasi dataRes, Model model) {
+
         model.addAttribute("newBuy", new datareservasi("", 0, ""));
         return "custBook";
     }
 
-
     @PostMapping("/buyticket/{param1}/{param2}")
     public String buyTicketpost(@PathVariable("param1") String param1,@PathVariable("param2") String param2,datareservasi dataRes,
+
             Model model) {
-        return "custBook";
+        model.addAttribute("dataRes", dataRes);
+        bookData.addBooking(dataRes);
+        return "payment";
+    }
+
+    @GetMapping("/payment")
+    public String payment(datareservasi dataRes, dataticket data_ticket) {
+        return "payment";
+    }
+
+    @PostMapping("/payment")
+    public String paymentpost(datareservasi dataRes, data data_ticket) {
+        return "mybooking";
     }
 
     @GetMapping("/Sidinerror")
@@ -179,7 +196,7 @@ public class SidinTravelController {
 
     @GetMapping("/Admin")
     public String adminSidin(Model model) {
-        model.addAttribute("userdatalogin", new userdatalogin("", "", "",false));
+        model.addAttribute("userdatalogin", new userdatalogin("", "", "", false));
         model.addAttribute("isAdmin", dataUser.getisAdmin());
         return "adminLogin";
     }
@@ -193,43 +210,140 @@ public class SidinTravelController {
         }
         return "redirect:/Admin/Add";
     }
+    @GetMapping("/Admin/Delete")
+    public String adminSidinDeletemenu(Model model) {
+        return "adminDeletemenu";
+    }
+
+    @GetMapping("/Admin/realDelete/{param}")
+    public String adminSidinDeletespecific(@PathVariable("param") String param, Model model) {
+        if (param.equals("Bus")) {
+            model.addAttribute("newData", new dataTiketbus(0, "", "", "", "", "0", 0));
+            model.addAttribute("code", '2');
+        } else if (param.equals("Kereta")) {
+            model.addAttribute("newData", new dataTiketkereta(0, "", "", "", "", "0", 0, 0));
+            model.addAttribute("code", '1');
+        } else if (param.equals("Pesawat")) {
+            model.addAttribute("newData", new dataTiketpesawat(0, "", "", "", "", "0", 0, 0, 0));
+            model.addAttribute("code", '0');
+        }
+        return "deleteTicket";
+    }
+
+    @PostMapping("/Admin/realDelete/postPesawat")
+    public String adminSidinDeletespecificPostpesawat(dataTiketpesawat newData, Model model) {
+        if(!dataTiket.checkIDpesawat(newData.getId())){
+            model.addAttribute("newData", new dataTiketpesawat(0, "", "", "", "", "0", 0, 0, 0));
+            model.addAttribute("code", '0');
+            model.addAttribute("Error", "Id tidak ditemukan");
+            return "deleteTicket";
+        }
+        dataTiket.removePesawat(newData.getId());
+        model.addAttribute("newData", new dataTiketpesawat(0, "", "", "", "", "0", 0, 0, 0));
+        model.addAttribute("code", '0');
+        model.addAttribute("Success", "SSSIIIIUUUUU Berhasil delete tiket pesawatnya");
+        return "deleteTicket";
+    }
+
+    @PostMapping("/Admin/realDelete/postKereta")
+    public String adminSidinDeletespecificPostkereta(dataTiketkereta newData, Model model) {
+        if(!dataTiket.checkIDkereta(newData.getId())){
+            model.addAttribute("newData", new dataTiketpesawat(0, "", "", "", "", "0", 0, 0, 0));
+            model.addAttribute("code", '1');
+            model.addAttribute("Error", "Id tidak ditemukan");
+            return "deleteTicket";
+        }
+        dataTiket.removeKereta(newData.getId());;
+        model.addAttribute("newData", new dataTiketpesawat(0, "", "", "", "", "0", 0, 0, 0));
+            model.addAttribute("code", '1');
+        model.addAttribute("Success", "SSSIIIIUUUUU Berhasil delete tiket keretanya");
+        return "deleteTicket";
+    }
+
+    @PostMapping("/Admin/realDelete/postBus")
+    public String adminSidinDeletepecificPostbus(dataTiketbus newData, Model model) {
+        if(!dataTiket.checkIDbus(newData.getId())){
+            model.addAttribute("newData", new dataTiketbus(0, "", "", "", "", "0", 0));
+            model.addAttribute("code", '2');
+            model.addAttribute("Error", "Id tidak ditemukan");
+            return "deleteTicket";
+        }
+        dataTiket.removeBus(newData.getId());
+        model.addAttribute("newData", new dataTiketbus(0, "", "", "", "", "0", 0));
+        model.addAttribute("code", '2');
+        model.addAttribute("Success", "SSSIIIIUUUUU Berhasil delete tiket Busnya");
+        return "deleteTicket";
+    }
+
 
     @GetMapping("/Admin/Update")
     public String adminSidinUpdatemenu(Model model) {
         return "adminUpdatemenu";
     }
+
     @GetMapping("/Admin/realUpdate/{param}")
     public String adminSidinUpdatespecific(@PathVariable("param") String param, Model model) {
         if (param.equals("Bus")) {
-            model.addAttribute("newData", new dataTiketbus(0, "", "", "", "", 0, 0));
+            model.addAttribute("newData", new dataTiketbus(0, "", "", "", "", "0", 0));
             model.addAttribute("code", '2');
         } else if (param.equals("Kereta")) {
-            model.addAttribute("newData", new dataTiketkereta(0, "", "", "", "", 0, 0, 0));
+            model.addAttribute("newData", new dataTiketkereta(0, "", "", "", "", "0", 0, 0));
             model.addAttribute("code", '1');
         } else if (param.equals("Pesawat")) {
-            model.addAttribute("newData", new dataTiketpesawat(0, "", "", "", "", 0, 0, 0, 0));
+            model.addAttribute("newData", new dataTiketpesawat(0, "", "", "", "", "0", 0, 0, 0));
             model.addAttribute("code", '0');
         }
         return "updateTicket";
     }
+
     @PostMapping("/Admin/realUpdate/postPesawat")
     public String adminSidinUpdatespecificPostpesawat(dataTiketpesawat newData, Model model) {
+        if(!dataTiket.checkIDpesawat(newData.getId())){
+            model.addAttribute("newData", new dataTiketpesawat(0, "", "", "", "", "0", 0, 0, 0));
+            model.addAttribute("code", '0');
+            model.addAttribute("Error", "Id tidak ditemukan");
+            return "updateTicket";
+        }
+        dataTiket.removePesawat(newData.getId());
         dataTiket.addPesawat(newData);
-        model.addAttribute("Success", "SSSIIIIUUUUU Berhasil tambah tiket pesawatnya");
-        return "redirect:/Admin/Add";
+        model.addAttribute("newData", new dataTiketpesawat(0, "", "", "", "", "0", 0, 0, 0));
+        model.addAttribute("code", '0');
+        model.addAttribute("Success", "SSSIIIIUUUUU Berhasil update tiket pesawatnya");
+        return "updateTicket";
     }
+
     @PostMapping("/Admin/realUpdate/postKereta")
-    public String adminSidinUpdatespecificPostkereta(dataTiketkereta newData,Model model) {
+    public String adminSidinUpdatespecificPostkereta(dataTiketkereta newData, Model model) {
+        if(!dataTiket.checkIDkereta(newData.getId())){
+            model.addAttribute("newData", new dataTiketpesawat(0, "", "", "", "", "0", 0, 0, 0));
+            model.addAttribute("code", '1');
+            model.addAttribute("Error", "Id tidak ditemukan");
+            return "updateTicket";
+        }
+        dataTiket.removeKereta(newData.getId());
         dataTiket.addKereta(newData);
-        model.addAttribute("Success", "SSSIIIIUUUUU Berhasil tambah tiket keretanya");
-        return "redirect:/Admin/Add";
+        model.addAttribute("newData", new dataTiketpesawat(0, "", "", "", "", "0", 0, 0, 0));
+            model.addAttribute("code", '1');
+        model.addAttribute("Success", "SSSIIIIUUUUU Berhasil update tiket keretanya");
+        return "updateTicket";
     }
+
     @PostMapping("/Admin/realUpdate/postBus")
     public String adminSidinUpdatespecificPostbus(dataTiketbus newData, Model model) {
+        if(!dataTiket.checkIDbus(newData.getId())){
+            model.addAttribute("newData", new dataTiketbus(0, "", "", "", "", "0", 0));
+            model.addAttribute("code", '2');
+            model.addAttribute("Error", "Id tidak ditemukan");
+            return "updateTicket";
+        }
+        dataTiket.removeBus(newData.getId());
         dataTiket.addBus(newData);
-        model.addAttribute("Success", "SSSIIIIUUUUU Berhasil tambah tiket Busnya");
-        return "redirect:/Admin/Add";
+        model.addAttribute("newData", new dataTiketbus(0, "", "", "", "", "0", 0));
+        model.addAttribute("code", '2');
+        model.addAttribute("Success", "SSSIIIIUUUUU Berhasil update tiket Busnya");
+        return "updateTicket";
     }
+
     @GetMapping("/Admin/Add")
     public String adminSidinAddmenu(Model model) {
         return "adminAddmenu";
@@ -238,13 +352,13 @@ public class SidinTravelController {
     @GetMapping("/Admin/realAdd/{param}")
     public String adminSidinAddspecific(@PathVariable("param") String param, Model model) {
         if (param.equals("Bus")) {
-            model.addAttribute("newData", new dataTiketbus(0, "", "", "", "", 0, 0));
+            model.addAttribute("newData", new dataTiketbus(0, "", "", "", "", "0", 0));
             model.addAttribute("code", '2');
         } else if (param.equals("Kereta")) {
-            model.addAttribute("newData", new dataTiketkereta(0, "", "", "", "", 0, 0, 0));
+            model.addAttribute("newData", new dataTiketkereta(0, "", "", "", "", "0", 0, 0));
             model.addAttribute("code", '1');
         } else if (param.equals("Pesawat")) {
-            model.addAttribute("newData", new dataTiketpesawat(0, "", "", "", "", 0, 0, 0, 0));
+            model.addAttribute("newData", new dataTiketpesawat(0, "", "", "", "", "0", 0, 0, 0));
             model.addAttribute("code", '0');
         }
         return "addTicket";
@@ -252,31 +366,52 @@ public class SidinTravelController {
 
     @PostMapping("/Admin/realAdd/postPesawat")
     public String adminSidinAddspecificPostpesawat(dataTiketpesawat newData, Model model) {
+        if(dataTiket.checkIDpesawat(newData.getId())){
+            model.addAttribute("newData", new dataTiketpesawat(0, "", "", "", "", "0", 0, 0, 0));
+            model.addAttribute("code", '0');
+            model.addAttribute("Error", "Id sudah terpakai");
+            return "addTicket";
+        }
         dataTiket.addPesawat(newData);
+        model.addAttribute("newData", new dataTiketpesawat(0, "", "", "", "", "0", 0, 0, 0));
+        model.addAttribute("code", '0');
         model.addAttribute("Success", "SSSIIIIUUUUU Berhasil tambah tiket pesawatnya");
-        return "redirect:/Admin/Add";
-    }
-    @PostMapping("/Admin/realAdd/postKereta")
-    public String adminSidinAddspecificPostkereta(dataTiketkereta newData,Model model) {
-        dataTiket.addKereta(newData);
-        model.addAttribute("Success", "SSSIIIIUUUUU Berhasil tambah tiket keretanya");
-        return "redirect:/Admin/Add";
-    }
-    @PostMapping("/Admin/realAdd/postBus")
-    public String adminSidinAddspecificPostbus(dataTiketbus newData, Model model) {
-        dataTiket.addBus(newData);
-        model.addAttribute("Success", "SSSIIIIUUUUU Berhasil tambah tiket Busnya");
-        return "redirect:/Admin/Add";
-    }
-    @GetMapping("/logout")
-    public String Logout(Model model){
-        dataUser.nowisLogout();
-        return "redirect:/";
+        return "addTicket";
     }
 
-    @GetMapping("/payment")
-    public String payment(Model model){
-        return "payment";
-        
+    @PostMapping("/Admin/realAdd/postKereta")
+    public String adminSidinAddspecificPostkereta(dataTiketkereta newData, Model model) {
+        if(dataTiket.checkIDkereta(newData.getId())){
+            model.addAttribute("newData", new dataTiketpesawat(0, "", "", "", "", "0", 0, 0, 0));
+            model.addAttribute("code", '1');
+            model.addAttribute("Error", "Id sudah terpakai");
+            return "addTicket";
+        }
+        dataTiket.addKereta(newData);
+        model.addAttribute("newData", new dataTiketkereta(0, "", "", "", "", "0", 0, 0));
+        model.addAttribute("code", '1');
+        model.addAttribute("Success", "SSSIIIIUUUUU Berhasil tambah tiket keretanya");
+        return "addTicket";
+    }
+
+    @PostMapping("/Admin/realAdd/postBus")
+    public String adminSidinAddspecificPostbus(dataTiketbus newData, Model model) {
+        if(dataTiket.checkIDbus(newData.getId())){
+            model.addAttribute("newData", new dataTiketbus(0, "", "", "", "", "0", 0));
+            model.addAttribute("code", '2');
+            model.addAttribute("Error", "Id tidak ditemukan");
+            return "addTicket";
+        }
+        dataTiket.addBus(newData);
+        model.addAttribute("newData", new dataTiketbus(0, "", "", "", "", "0", 0));
+        model.addAttribute("code", '2');
+        model.addAttribute("Success", "SSSIIIIUUUUU Berhasil tambah tiket Busnya");
+        return "addTicket";
+    }
+
+    @GetMapping("/logout")
+    public String Logout(Model model) {
+        dataUser.nowisLogout();
+        return "redirect:/";
     }
 }

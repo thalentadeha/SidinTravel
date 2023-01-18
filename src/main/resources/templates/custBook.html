@@ -1,8 +1,7 @@
 <html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"layout:decorate="~{layout}">
     <body>
         <div layout:fragment="content">
-            <form th:object="${newBuy}"method="post"th:action="@{/buyticket}">
-                
+            <form th:object="${newBuy}"method="post"th:action="@{/buyticket}">                
                 <div class="row">
                   
                   <div class="col">
@@ -28,17 +27,17 @@
                 
                    <!-- <h5>WiFi</h5>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="WiFi" id="flexRadioDefault1"value="1"th:field="*{WiFi}">
+                        <input class="form-check-input" type="radio" name="WiFi" id="flexRadioDefault1"value="1"th:field="*{jenisKelamin}">
                         <label class="form-check-label" for="flexRadioDefault1">
-                          Iya
+                          Laki - laki
                         </label>
                       </div>
                       <div class="form-check">
-                        <input class="form-check-input" type="radio" name="WiFi" id="flexRadioDefault2"value="0"th:field="*{WiFi}" checked>
+                        <input class="form-check-input" type="radio" name="WiFi" id="flexRadioDefault2"value="0"th:field="*{jenisKelamin}" checked>
                         <label class="form-check-label" for="flexRadioDefault2">
-                          Tidak
+                          Perempuan
                         </label>
-                      </div> -->
+                      </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form> 
         </div>
