@@ -197,8 +197,6 @@ public class SidinTravelController {
         return "payment";
     }
 
-    // @GetMapping("")
-
     @GetMapping("/Sidinerror")
     public String siderror(Model model) {
         return "error";

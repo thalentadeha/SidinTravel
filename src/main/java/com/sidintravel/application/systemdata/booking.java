@@ -16,4 +16,8 @@ public class booking {
     public List<datareservasi> showBooking() {
         return reservasi;
     }
+
+    public Integer getSize() {
+        return reservasi.size();
+    }
 }
