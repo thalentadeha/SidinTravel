@@ -197,14 +197,9 @@ public class SidinTravelController {
         return "payment";
     }
 
-    @GetMapping("/payment")
-    public String payment(datareservasi dataRes, dataticket data_ticket) {
-        return "payment";
-    }
+    @GetMapping("/myBooking")
+    public String myBooking(datareservasi dataRes, dataticket data, Model model) {
 
-    @PostMapping("/payment")
-    public String paymentpost(datareservasi dataRes, data data_ticket) {
-        return "mybooking";
     }
 
     @GetMapping("/Sidinerror")

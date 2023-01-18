@@ -13,7 +13,11 @@ public class booking {
         reservasi.add(temp);
     }
 
-    public List<datareservasi> getBooking() {
+    public List<datareservasi> showBooking() {
         return reservasi;
+    }
+
+    public Integer getSize() {
+        return reservasi.size();
     }
 }
