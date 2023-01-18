@@ -1,6 +1,11 @@
 <html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"layout:decorate="~{layout}">
     <body>
         <div layout:fragment="content">
+          <span th:if="${Error != null}">
+            <div class="alert alert-danger" role="alert"th:text="${Error}">
+              
+            </div>
+          </span>
             <td th:switch="${code}">
             <div th:case="'0'">
                 <form th:object="${newData}"method="post"th:action="@{/Admin/realUpdate/postPesawat}">
@@ -27,7 +32,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputEmail3" class="form-label">Harga</label>
-                        <input type="number" class="form-control" id="exampleInputEmail3" aria-describedby="emailHelp"th:field="*{harga}">
+                        <input type="text" class="form-control" id="exampleInputEmail3" aria-describedby="emailHelp"th:field="*{harga}">
                     </div>
                    <h5>WiFi</h5>
                    <div class="row">
@@ -102,7 +107,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputEmail3" class="form-label">Harga</label>
-                        <input type="number" class="form-control" id="exampleInputEmail3" aria-describedby="emailHelp"th:field="*{harga}">
+                        <input type="text" class="form-control" id="exampleInputEmail3" aria-describedby="emailHelp"th:field="*{harga}">
                     </div>
                    <h5>WiFi</h5>
                     <div class="form-check">
@@ -159,7 +164,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputEmail3" class="form-label">Harga</label>
-                        <input type="number" class="form-control" id="exampleInputEmail3" aria-describedby="emailHelp"th:field="*{harga}">
+                        <input type="text" class="form-control" id="exampleInputEmail3" aria-describedby="emailHelp"th:field="*{harga}">
                     </div>
                    <h5>WiFi</h5>
                     <div class="form-check">

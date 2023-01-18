@@ -1,0 +1,39 @@
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"layout:decorate="~{layout}">
+    <body>
+        <div layout:fragment="content">
+            <td th:switch="${code}">
+            <div th:case="'0'">
+                <form th:object="${newData}"method="post"th:action="@{/Admin/realDelete/postPesawat}">
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">ID</label>
+                        <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"th:field="*{id}">
+                      </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                  </form>
+            </div>
+            <div th:case="'1'">
+                <form th:object="${newData}"method="post"th:action="@{/Admin/realDelete/postKereta}">
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">ID</label>
+                        <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"th:field="*{id}">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                  </form>
+            </div>
+            <div th:case="'2'">
+                <form th:object="${newData}"method="post"th:action="@{/Admin/realDelete/postBus}">
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">ID</label>
+                        <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"th:field="*{id}">
+                      </div>
+                    <div class="mb-3">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                  </form>
+            </div>
+            <div th:case="'*'">
+                <h1>YNTKTS</h1>
+            </div>
+        </div>
+        </td>
+    </body>
+</html>
