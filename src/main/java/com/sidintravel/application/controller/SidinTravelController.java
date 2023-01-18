@@ -142,13 +142,13 @@ public class SidinTravelController {
     @GetMapping("viewticket/{param}")
     public String ticketView(@PathVariable("param") String param, Model model) {
         Boolean isLogin = dataUser.checkisLogin();
-        Boolean isNew = dataUser.checkisNeW();
+        // Boolean isNew = dataUser.checkisNeW();
         if (!isLogin) {
             return "error";
         }
-        if (isNew == true) {
+        // if (isNew == true) {
 
-        }
+        // }
         if (param.equals("Bus")) {
             model.addAttribute("tickets", dataTiket.showBis());
             model.addAttribute("code", '2');
