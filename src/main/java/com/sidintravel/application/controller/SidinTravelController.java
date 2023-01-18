@@ -166,6 +166,7 @@ public class SidinTravelController {
     public String buyTicketget(@PathVariable("param1") String param1, @PathVariable("param2") String param2,
             datareservasi dataRes, Model model) {
         model.addAttribute("newBuy", new datareservasi("", 0, 0, 0));
+        model.addAttribute("param1", param1);
         if (param1.equals("bus")) {
             model.addAttribute("tickets", dataTiket.showBuyBis(Integer.parseInt(param2)));
             model.addAttribute("code", '2');
@@ -194,9 +195,27 @@ public class SidinTravelController {
             dataRes.setidCode(0);
             dataRes.setidTiket(Integer.parseInt(param2));
         }
-        return "payment";
+        return "terimakasih";
     }
 
+<<<<<<< Updated upstream
+=======
+    @GetMapping("/terimakasih")
+    public String terimakasih(Model model) {
+        return "terimakasih";
+    }
+
+    @PostMapping("/terimakasih")
+    public String terimakasihpost(Model model) {
+        return "terimakasih";
+    }
+
+    // @GetMapping("/myBooking")
+    // public String myBooking(Model model) {
+
+    // }
+
+>>>>>>> Stashed changes
     @GetMapping("/Sidinerror")
     public String siderror(Model model) {
         return "error";

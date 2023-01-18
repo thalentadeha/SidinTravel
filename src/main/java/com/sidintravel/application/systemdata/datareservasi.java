@@ -4,8 +4,8 @@ public class datareservasi {
     protected String namaPembeli;
     protected Integer KTP;
     // protected String jenisKelamin;
-    Integer idTiket;
-    Integer idCode;
+    public Integer idTiket;
+    public Integer idCode;
 
     public datareservasi(String namaPembeli, Integer KTP, Integer idTiket, Integer idCode) {
         this.namaPembeli = namaPembeli;

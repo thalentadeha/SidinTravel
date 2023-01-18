@@ -7,10 +7,11 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class booking {
-    private ArrayList<datareservasi> reservasi = new ArrayList<datareservasi>();
+    private ArrayList<datareservasi> reservasi = new ArrayList<>();
 
-    public void addBooking(datareservasi temp) {
+    public Boolean addBooking(datareservasi temp) {
         reservasi.add(temp);
+        return true;
     }
 
     public List<datareservasi> showBooking() {
