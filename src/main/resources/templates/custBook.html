@@ -2,19 +2,30 @@
     <body>
         <div layout:fragment="content">
             <form th:object="${newBuy}"method="post"th:action="@{/buyticket}">
-                <div class="mb-3">
-                  <label for="exampleInputEmail1" class="form-label">Nama Panjang</label>
-                  <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"th:field="*{namaPembeli}">
-                  <div id="emailHelp" class="form-text"></div>
+                
+                <div class="row">
+                  
+                  <div class="col">
+                    <div class="mb-3">
+                      <label for="exampleInputEmail1" class="form-label">Nama Panjang</label>
+                      <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"th:field="*{namaPembeli}">
+                      <div id="emailHelp" class="form-text"></div>
+                    </div>
+                    <div class="mb-3">
+                      <label for="exampleInputEmail2" class="form-label">No KTP</label>
+                      <input type="number" class="form-control" id="exampleInputEmail2" aria-describedby="emailHelp"th:field="*{KTP}">
+                  </div>
+                  <div class="mb-3">
+                     <label for="exampleInputEmail3" class="form-label">Jenis Kelamin</label>
+                      <input type="text" class="form-control" id="exampleInputEmail3" aria-describedby="emailHelp"th:field="*{jenisKelamin}">
+                  </div>
+                  </div>
+                  <div class="col">
+                    <h1>tes</h1>
+                  </div>
                 </div>
-                <div class="mb-3">
-                    <label for="exampleInputEmail2" class="form-label">No KTP</label>
-                    <input type="number" class="form-control" id="exampleInputEmail2" aria-describedby="emailHelp"th:field="*{KTP}">
-                </div>
-                <div class="mb-3">
-                   <label for="exampleInputEmail3" class="form-label">Jenis Kelamin</label>
-                    <input type="text" class="form-control" id="exampleInputEmail3" aria-describedby="emailHelp"th:field="*{jenisKelamin}">
-                </div>
+                
+                
                    <!-- <h5>WiFi</h5>
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="WiFi" id="flexRadioDefault1"value="1"th:field="*{WiFi}">
