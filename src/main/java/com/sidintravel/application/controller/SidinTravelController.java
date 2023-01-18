@@ -163,15 +163,27 @@ public class SidinTravelController {
     }
 
     @GetMapping("/buyticket")
-    public String buyTicketget(datareservasi dataBook, Model model) {
+    public String buyTicketget(datareservasi dataRes, Model model) {
         model.addAttribute("newBuy", new datareservasi("", 0, ""));
         return "custBook";
     }
 
     @PostMapping("/buyticket")
-    public String buyTicketpost(datareservasi dataBook,
+    public String buyTicketpost(datareservasi dataRes,
             Model model) {
-        return "custBook";
+        model.addAttribute("dataRes", dataRes);
+        bookData.addBooking(dataRes);
+        return "payment";
+    }
+
+    @GetMapping("/payment")
+    public String payment(datareservasi dataRes, dataticket data_ticket) {
+        return "payment";
+    }
+
+    @PostMapping("/payment")
+    public String paymentpost(datareservasi dataRes, data data_ticket) {
+        return "mybooking";
     }
 
     @GetMapping("/Sidinerror")
@@ -282,11 +294,5 @@ public class SidinTravelController {
     public String Logout(Model model) {
         dataUser.nowisLogout();
         return "redirect:/";
-    }
-
-    @GetMapping("/payment")
-    public String payment(Model model) {
-        return "payment";
-
     }
 }

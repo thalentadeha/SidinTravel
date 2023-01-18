@@ -150,14 +150,14 @@ public class userData {
         return true;
     }
 
-    public void getDiscount() {
-        // double
-        for (int i = 0; i < dataUser.size(); i++) {
-            if (dataUser.get(i).getEmail().equals(tempEmail)) {
-
-            }
-        }
-    }
+    // public void getDiscount() {
+    // double tempHarga;
+    // for (int i = 0; i < dataUser.size(); i++) {
+    // if (dataUser.get(i).getEmail().equals(tempEmail)) {
+    // tempHarga = (Double) dataUser
+    // }
+    // }
+    // }
 
     static <T, V> void giveError(T param1, Model model) {
         model.addAttribute("param1", param1);
