@@ -3,12 +3,15 @@ package com.sidintravel.application.systemdata;
 public class datareservasi {
     protected String namaPembeli;
     protected Integer KTP;
-    protected String jenisKelamin;
+    // protected String jenisKelamin;
+    Integer idTiket;
+    Integer idCode;
 
-    public datareservasi(String namaPembeli, Integer KTP, String jenisKelamin) {
+    public datareservasi(String namaPembeli, Integer KTP, Integer idTiket, Integer idCode) {
         this.namaPembeli = namaPembeli;
         this.KTP = KTP;
-        this.jenisKelamin = jenisKelamin;
+        this.idTiket = idTiket;
+        this.idCode = idCode;
     }
 
     public void setnamaPembeli(String namaPembeli) {
@@ -27,12 +30,27 @@ public class datareservasi {
         return KTP;
     }
 
-    public void setjenisKelamin(String jenisKelamin) {
-        this.jenisKelamin = jenisKelamin;
+    public void setidTiket(Integer idTiket) {
+        this.idTiket = idTiket;
     }
 
-    public String getjenisKelamin() {
-        return jenisKelamin;
+    public Integer getidTiket() {
+        return idTiket;
     }
+
+    public void setidCode(Integer idCode) {
+        this.idCode = idCode;
+    }
+
+    public Integer getidCode() {
+        return idCode;
+    }
+    // public void setjenisKelamin(String jenisKelamin) {
+    // this.jenisKelamin = jenisKelamin;
+    // }
+
+    // public String getjenisKelamin() {
+    // return jenisKelamin;
+    // }
 
 }
