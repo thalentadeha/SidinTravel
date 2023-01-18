@@ -9,14 +9,15 @@
     <title>Document</title>
 </head>
 <style>
-    .kotak{
+    .kotak1{
         border-radius: 10px;
         background-color: antiquewhite;
         padding: 0 1rem 1rem 1rem;
         margin-top: 6rem;
     }
     .pos{
-        margin-top: 5rem;
+        /* margin-top: 5rem; */
+        background-color: beige;
     }
     .shade{
         box-shadow: 2px 3px 1px black;
@@ -24,7 +25,7 @@
 </style>
     <body>
       <div class="container-fluid">
-        <div class="container kotak">
+        <div class="container kotak1">
             <div class="mb-5">
                 <h1 class="mt-5 p-4 text-center">Payment</h1>
                 <div class="row mt-5 p-4">
@@ -32,14 +33,21 @@
                         <img src="https://images.unsplash.com/photo-1556742077-0a6b6a4a4ac4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
                          class="img-thumbnail shade" alt="">
                     </div>
-                    <div class="col text-center pos">
-                        <div class="input-group input-group-lg mb-3">
-                            <span class="input-group-text" id="inputGroup-sizing-lg">Rp</span>
-                            <input type="text" class="form-control" aria-label="Amount (to the nearest IDR)" aria-describedby="inputGroup-sizing-lg">
+                    <div class="col pos">
+                        <div class="row justify-content-center">
+                            <div>
+                                <h3 class="p-3">Your Order</h3>
+                            </div>
+                            <div class="input-group mb-3 mt-5">
+                                <span class="input-group-text">Rp</span>
+                                <input type="text" class="form-control" aria-label="Amount (to the nearest IDR)" aria-describedby="inputGroup-sizing-lg">
+                            </div>
+                            <div class="d-grid gap-2 col-6 mx-auto" style="position:bottom">
+                                <button class="btn btn-primary" type="button">Button</button>
+                            </div>
                         </div>
-                        <div style="text-align:right;padding-right: 2px;">
-                            <button type="button" class="btn btn-secondary btn-lg">Submit</button>
-                        </div>  
+                        
+  
                     </div>
                 </div>
             </div>
