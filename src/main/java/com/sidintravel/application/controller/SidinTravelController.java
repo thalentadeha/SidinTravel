@@ -162,14 +162,17 @@ public class SidinTravelController {
         return "ticketview";
     }
 
-    @GetMapping("/buyticket")
-    public String buyTicketget(datareservasi dataRes, Model model) {
+
+    @GetMapping("/buyticket/{param1}/{param2}")
+    public String buyTicketget(@PathVariable("param1") String param1,@PathVariable("param2") String param2,datareservasi dataRes, Model model) {
+
         model.addAttribute("newBuy", new datareservasi("", 0, ""));
         return "custBook";
     }
 
-    @PostMapping("/buyticket")
-    public String buyTicketpost(datareservasi dataRes,
+    @PostMapping("/buyticket/{param1}/{param2}")
+    public String buyTicketpost(@PathVariable("param1") String param1,@PathVariable("param2") String param2,datareservasi dataRes,
+
             Model model) {
         model.addAttribute("dataRes", dataRes);
         bookData.addBooking(dataRes);
