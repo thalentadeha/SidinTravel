@@ -1,5 +1,7 @@
 package com.sidintravel.application.controller;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -166,6 +168,8 @@ public class SidinTravelController {
     public String buyTicketget(@PathVariable("param1") String param1, @PathVariable("param2") String param2,
             datareservasi dataRes, Model model) {
         model.addAttribute("newBuy", new datareservasi("", 0, 0, 0));
+        model.addAttribute("param1", param1);
+        model.addAttribute("param2", param2);
         if (param1.equals("bus")) {
             model.addAttribute("tickets", dataTiket.showBuyBis(Integer.parseInt(param2)));
             model.addAttribute("code", '2');
@@ -183,10 +187,10 @@ public class SidinTravelController {
     public String buyTicketpost(@PathVariable("param1") String param1, @PathVariable("param2") String param2,
             datareservasi dataRes, Model model) {
         model.addAttribute("dataRes", dataRes);
-        bookData.addBooking(dataRes);
         if (param1.equals("bus")) {
             dataRes.setidCode(2);
             dataRes.setidTiket(Integer.parseInt(param2));
+            System.out.println("SIU");
         } else if (param1.equals("kereta")) {
             dataRes.setidCode(1);
             dataRes.setidTiket(Integer.parseInt(param2));
@@ -194,12 +198,29 @@ public class SidinTravelController {
             dataRes.setidCode(0);
             dataRes.setidTiket(Integer.parseInt(param2));
         }
-        return "payment";
+        bookData.addBooking(dataRes);
+        return "redirect:/home";
     }
 
     @GetMapping("/myBooking")
     public String myBooking(Model model) {
-
+        ArrayList<dataTiketbus> tempBus = new ArrayList<>();
+        ArrayList<dataTiketkereta> tempKereta = new ArrayList<>();
+        ArrayList<dataTiketpesawat> tempPesawat = new ArrayList<>();
+        for(int i=0;i < bookData.getSize();i++){
+            Integer tempidCode = bookData.showBooking().get(i).getidCode();
+            if(tempidCode == 2){
+                tempBus.add(dataTiket.showBuyBis(bookData.showBooking().get(i).getidTiket()));
+            }else if(tempidCode == 1){
+                tempKereta.add(dataTiket.showBuyKereta(bookData.showBooking().get(i).getidTiket()));
+            }else if(tempidCode == 0){
+                tempPesawat.add(dataTiket.showBuyPesawat(bookData.showBooking().get(i).getidTiket()));
+            }
+        }
+        model.addAttribute("tempBus", tempBus);
+        model.addAttribute("tempKereta", tempKereta);
+        model.addAttribute("tempPesawat", tempPesawat);
+        return "mybook";
     }
 
     @GetMapping("/Sidinerror")

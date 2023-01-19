@@ -1,8 +1,8 @@
 package com.sidintravel.application.systemdata;
 
 public class datareservasi {
-    protected String namaPembeli;
-    protected Integer KTP;
+   String namaPembeli;
+     Integer KTP;
     // protected String jenisKelamin;
     Integer idTiket;
     Integer idCode;
