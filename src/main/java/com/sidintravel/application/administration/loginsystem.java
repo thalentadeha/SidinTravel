@@ -16,9 +16,6 @@ public class loginsystem {
     // simpen username, email, password
     private ArrayList<userdatalogin> dataUser = new ArrayList<>();
 
-    public loginsystem() {
-
-    }
 
     // check untuk user biasa
     public boolean check(String email, String password) {
