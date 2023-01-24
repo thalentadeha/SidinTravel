@@ -40,6 +40,10 @@
                         <input type="text" class="form-control" id="exampleInputEmail3" aria-describedby="emailHelp"th:field="*{harga}">
                         <div id="emailHelp" class="form-text">RP bisa dihapus dulu biar g error</div>
                       </div>
+                      <div class="mb-3">
+                        <label for="exampleInputEmail3" class="form-label">Baggage</label>
+                        <input type="text" class="form-control" id="exampleInputEmail3" aria-describedby="emailHelp"th:field="*{Baggage}">
+                      </div>
                    <h5>WiFi</h5>
                    <div class="row">
                     <div class="col">
@@ -51,19 +55,6 @@
                       </div>
                       <div class="form-check">
                         <input class="form-check-input" type="radio" name="WiFi" id="flexRadioDefault2"value="0"th:field="*{WiFi}" checked>
-                        <label class="form-check-label" for="flexRadioDefault2">
-                          Tidak
-                        </label>
-                      </div>
-                      <h5>Baggage</h5>
-                      <div class="form-check">
-                        <input class="form-check-input" type="radio" name="Baggage" id="flexRadioDefault1"value="1"th:field="*{Baggage}">
-                        <label class="form-check-label" for="flexRadioDefault1">
-                          Iya
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="radio" name="Baggage"value="0" id="flexRadioDefault2"th:field="*{Baggage}" checked>
                         <label class="form-check-label" for="flexRadioDefault2">
                           Tidak
                         </label>

@@ -1,7 +1,7 @@
 package com.sidintravel.application.systemdata;
 
 public class dataTiketkereta extends dataticket {
-    Integer WiFi;
+    private Integer WiFi;
     private Integer Meal;
 
     public dataTiketkereta(Integer id, String maskapai, String awal, String tujuan, String jam, String harga,
