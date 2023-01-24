@@ -1,11 +1,11 @@
 package com.sidintravel.application.systemdata;
 
 public class datareservasi {
-   String namaPembeli;
-     Integer KTP;
+    public String namaPembeli;
+    public Integer KTP;
     // protected String jenisKelamin;
-    Integer idTiket;
-    Integer idCode;
+    public Integer idTiket;
+    public Integer idCode;
 
     public datareservasi(String namaPembeli, Integer KTP, Integer idTiket, Integer idCode) {
         this.namaPembeli = namaPembeli;

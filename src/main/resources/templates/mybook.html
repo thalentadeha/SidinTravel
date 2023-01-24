@@ -2,131 +2,150 @@
     <body>
         <div layout:fragment="content">
                     <div k th:each="ticketP : ${tempPesawat}">
-                            <div class="card-body buatbasket shadow p-3 mb-5 bg-body rounded">
-                                <div class="row">
-                                    <div class="col">
-                                        <h5 style="margin-bottom:1rem;"><span th:text="${ticketP.awal}"></span> ~ <span th:text="${ticketP.tujuan}"></span></h5>
-                                        <h6 style="margin-bottom:1rem;">Jam: <span th:text="${ticketP.jam}"></span></h6>
-                                        <div class="row content-left">
-                                            <div class="col">
+                        <div k th:each="bookingP : ${tempBookingPesawat}">
+                            <div th:if="${ticketP.id == bookingP.idTiket}">
+                                <div class="card-body buatbasket shadow p-3 mb-5 bg-body rounded">
+                                    <div class="row">
+                                        <div class="col">
+                                            <h5 style="margin-bottom:1rem;"><span th:text="${ticketP.awal}"></span> ~ <span th:text="${ticketP.tujuan}"></span></h5>
+                                            <h6 style="margin-bottom:1rem;">Jam: <span th:text="${ticketP.jam}"></span></h6>
+                                            <h6 style="margin-bottom:1rem;">Nama: <span th:text="${bookingP.namaPembeli}"></span></h6>
+                                            <h6 style="margin-bottom:1rem;">No KTP: <span th:text="${bookingP.KTP}"></span></h6>
+                                            <div class="row content-left">
+                                                <div class="col">
+                                                    <div th:if="${ticketP.Baggage != 0}"style="display: inline-block;margin-right:3rem;"> 
+                                                        <img src="/image/luggage.png"class="ukuranIcon">  
+                                                    </div>
+                                                    <div th:unless="${ticketP.Baggage != 0}"style="display: inline-block;margin-right:3rem;"> 
+                                                        <img src="/image/no-bag.png"class="ukuranIcon">  
+                                                    </div>
+                                                    <div th:if="${ticketP.WiFi != 0}"style="display: inline-block;margin-right:3rem;"> 
+                                                        <img src="/image/wifi.png"class="ukuranIcon">  
+                                                    </div>
+                                                    <div th:unless="${ticketP.WiFi != 0}"style="display: inline-block;margin-right:3rem;"> 
+                                                        <img src="/image/no-signal.png"class="ukuranIcon">  
+                                                    </div>
+                                                    <div th:if="${ticketP.Meal != 0}"style="display: inline-block;margin-right:3rem;"> 
+                                                        <img src="/image/dinner.png"class="ukuranIcon"> 
+                                                    </div>
+                                                    <div th:unless="${ticketP.Meal != 0}"style="display: inline-block;margin-right:3rem;"> 
+                                                        <img src="/image/fasting.png"class="ukuranIcon">  
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
                                                 <div th:if="${ticketP.Baggage != 0}"style="display: inline-block;margin-right:3rem;"> 
-                                                    <img src="/image/luggage.png"class="ukuranIcon">  
+                                                    <h6><span th:text="${ticketP.Baggage}"></span>KG</h6>
                                                 </div>
-                                                <div th:unless="${ticketP.Baggage != 0}"style="display: inline-block;margin-right:3rem;"> 
-                                                    <img src="/image/no-bag.png"class="ukuranIcon">  
-                                                </div>
-                                                <div th:if="${ticketP.WiFi != 0}"style="display: inline-block;margin-right:3rem;"> 
-                                                    <img src="/image/wifi.png"class="ukuranIcon">  
-                                                </div>
-                                                <div th:unless="${ticketP.WiFi != 0}"style="display: inline-block;margin-right:3rem;"> 
-                                                    <img src="/image/no-signal.png"class="ukuranIcon">  
-                                                </div>
-                                                <div th:if="${ticketP.Meal != 0}"style="display: inline-block;margin-right:3rem;"> 
-                                                    <img src="/image/dinner.png"class="ukuranIcon"> 
-                                                </div>
-                                                <div th:unless="${ticketP.Meal != 0}"style="display: inline-block;margin-right:3rem;"> 
-                                                    <img src="/image/fasting.png"class="ukuranIcon">  
+                                                <div th:unless="${ticketP.Baggage == 0}"> 
+                                                    
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row">
-                                            <div th:if="${ticketP.Baggage != 0}"style="display: inline-block;margin-right:3rem;"> 
-                                                <h6><span th:text="${ticketP.Baggage}"></span>KG</h6>
+                                        <div class="col">
+                                        </div>
+                                        <div class="col text-center">
+                                            <h3 class="card-title"id="title"th:text="${ticketP.maskapai}"></h3>
+                                            <div th:if="${ticketP.maskapai == 'Lion Air'}">
+                                                <img src="/image/Lion_air_logo.png">
                                             </div>
-                                            <div th:unless="${ticketP.Baggage == 0}"> 
-                                                
+                                            <div th:if="${ticketP.maskapai == 'Citilink'}">
+                                                <img src="/image/Citilink_logo.png">
                                             </div>
+                                            <div th:if="${ticketP.maskapai == 'Garuda Indonesia'}">
+                                                <img src="/image/Garuda_Ind_logo.png">
+                                            </div>
+                                            <h4><span th:text="${ticketP.harga}"></span></h4>
                                         </div>
-                                    </div>
-                                    <div class="col">
-                                    </div>
-                                    <div class="col text-center">
-                                        <h3 class="card-title"id="title"th:text="${ticketP.maskapai}"></h3>
-                                        <div th:if="${ticketP.maskapai == 'Lion Air'}">
-                                            <img src="/image/Lion_air_logo.png">
-                                        </div>
-                                        <div th:if="${ticketP.maskapai == 'Citilink'}">
-                                            <img src="/image/Citilink_logo.png">
-                                        </div>
-                                        <div th:if="${ticketP.maskapai == 'Garuda Indonesia'}">
-                                            <img src="/image/Garuda_Ind_logo.png">
-                                        </div>
-                                        <h4><span th:text="${ticketP.harga}"></span><p>/pax</p></h4>
                                     </div>
                                 </div>
                             </div>
+                        </div>                            
                     </div>
                     <div k th:each="ticketK : ${tempKereta}">
-                            <div class="card-body buatbasket shadow p-3 mb-5 bg-body rounded">
-                                <div class="row">
-                                    <div class="col">
-                                        <h5 style="margin-bottom:1rem;"><span th:text="${ticketK.awal}"></span> ~ <span th:text="${ticketK.tujuan}"></span></h5>
-                                        <h6 style="margin-bottom:1rem;">Jam: <span th:text="${ticketK.jam}"></span></h6>
-                                        <div class="row content-left">
-                                            <div class="col">
-                                                <div th:if="${ticketK.WiFi != 0}"style="display: inline-block;margin-right:3rem;"> 
-                                                    <img src="/image/wifi.png"class="ukuranIcon">  
-                                                </div>
-                                                <div th:unless="${ticketK.WiFi != 0}"style="display: inline-block;margin-right:3rem;"> 
-                                                    <img src="/image/no-signal.png"class="ukuranIcon">  
-                                                </div>
-                                                <div th:if="${ticketK.Meal != 0}"style="display: inline-block;margin-right:3rem;"> 
-                                                    <img src="/image/dinner.png"class="ukuranIcon"> 
-                                                </div>
-                                                <div th:unless="${ticketK.Meal != 0}"style="display: inline-block;margin-right:3rem;"> 
-                                                    <img src="/image/fasting.png"class="ukuranIcon">  
+                        <div k th:each="bookingK : ${tempBookingKereta}">
+                            <div th:if="${ticketK.id == bookingK.idTiket}">
+                                <div class="card-body buatbasket shadow p-3 mb-5 bg-body rounded">
+                                    <div class="row">
+                                        <div class="col">
+                                            <h5 style="margin-bottom:1rem;"><span th:text="${ticketK.awal}"></span> ~ <span th:text="${ticketK.tujuan}"></span></h5>
+                                            <h6 style="margin-bottom:1rem;">Jam: <span th:text="${ticketK.jam}"></span></h6>
+                                            <h6 style="margin-bottom:1rem;">Nama: <span th:text="${bookingK.namaPembeli}"></span></h6>
+                                            <h6 style="margin-bottom:1rem;">No KTP: <span th:text="${bookingK.KTP}"></span></h6>
+                                            <div class="row content-left">
+                                                <div class="col">
+                                                    <div th:if="${ticketK.WiFi != 0}"style="display: inline-block;margin-right:3rem;"> 
+                                                        <img src="/image/wifi.png"class="ukuranIcon">  
+                                                    </div>
+                                                    <div th:unless="${ticketK.WiFi != 0}"style="display: inline-block;margin-right:3rem;"> 
+                                                        <img src="/image/no-signal.png"class="ukuranIcon">  
+                                                    </div>
+                                                    <div th:if="${ticketK.Meal != 0}"style="display: inline-block;margin-right:3rem;"> 
+                                                        <img src="/image/dinner.png"class="ukuranIcon"> 
+                                                    </div>
+                                                    <div th:unless="${ticketK.Meal != 0}"style="display: inline-block;margin-right:3rem;"> 
+                                                        <img src="/image/fasting.png"class="ukuranIcon">  
+                                                    </div>
                                                 </div>
                                             </div>
+                                            <div class="row">
+                                            </div>
                                         </div>
-                                        <div class="row">
+                                        <div class="col">
                                         </div>
-                                    </div>
-                                    <div class="col">
-                                    </div>
-                                    <div class="col text-center">
-                                        <h3 class="card-title" id="title"th:text="${ticketK.maskapai}"></h3>
-                                        <div th:if="${ticketK.maskapai != null}">
-                                            <img src="/image/logo-kai.png" style="margin-top:1rem">
+                                        <div class="col text-center">
+                                            <h3 class="card-title" id="title"th:text="${ticketK.maskapai}"></h3>
+                                            <div th:if="${ticketK.maskapai != null}">
+                                                <img src="/image/logo-kai.png" style="margin-top:1rem">
+                                            </div>
+                                            <h4 style="margin-bottom:1rem;margin-top:20px;"><span th:text="${ticketK.harga}"></span></h4>
                                         </div>
-                                        <h4 style="margin-bottom:1rem;margin-top:20px;"><span th:text="${ticketK.harga}"></span><p>/pax</p></h4>
                                     </div>
                                 </div>
                             </div>
+                        </div>                            
                     </div>
                     <div k th:each="ticketB : ${tempBus}">
-                            <div class="card-body buatbasket shadow p-3 mb-5 bg-body rounded">
-                                <div class="row">
-                                    <div class="col">
-                                        <h5 style="margin-bottom:1rem;"><span th:text="${ticketB.awal}"></span> ~ <span th:text="${ticketB.tujuan}"></span></h5>
-                                        <h6 style="margin-bottom:1rem;">Jam: <span th:text="${ticketB.jam}"></span></h6>
-                                        <div class="row content-left">
-                                            <div class="col">
-                                                <div th:if="${ticketB.WiFi != 0}"style="display: inline-block;margin-right:3rem;"> 
-                                                    <img src="/image/wifi.png"class="ukuranIcon">  
-                                                </div>
-                                                <div th:unless="${ticketB.WiFi != 0}"style="display: inline-block;margin-right:3rem;"> 
-                                                    <img src="/image/no-signal.png"class="ukuranIcon">  
+                        <div k th:each="bookingB : ${tempBookingBus}">
+                            <div th:if="${ticketB.id == bookingB.idTiket}">
+                                <div class="card-body buatbasket shadow p-3 mb-5 bg-body rounded">
+                                    <div class="row">
+                                        <div class="col">
+                                            <h5 style="margin-bottom:1rem;"><span th:text="${ticketB.awal}"></span> ~ <span th:text="${ticketB.tujuan}"></span></h5>
+                                            <h6 style="margin-bottom:1rem;">Jam: <span th:text="${ticketB.jam}"></span></h6>
+                                            <h6 style="margin-bottom:1rem;">Nama: <span th:text="${bookingB.namaPembeli}"></span></h6>
+                                            <h6 style="margin-bottom:1rem;">No KTP: <span th:text="${bookingB.KTP}"></span></h6>
+                                            <div class="row content-left">
+                                                <div class="col">
+                                                    <div th:if="${ticketB.WiFi != 0}"style="display: inline-block;margin-right:3rem;"> 
+                                                        <img src="/image/wifi.png"class="ukuranIcon">  
+                                                    </div>
+                                                    <div th:unless="${ticketB.WiFi != 0}"style="display: inline-block;margin-right:3rem;"> 
+                                                        <img src="/image/no-signal.png"class="ukuranIcon">  
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col">
-                                    </div>
-                                    <div class="col text-center">
-                                        <h3 class="card-title mb-3"id="title"th:text="${ticketB.maskapai}"></h3>
-                                        <div th:if="${ticketB.maskapai == 'Pahala Kencana'}">
-                                            <img src="/image/pahala-kencana-logo.png">
+                                        <div class="col">
                                         </div>
-                                        <div th:if="${ticketB.maskapai == 'Lorena'}">
-                                            <img src="/image/LOGO-LORENA-PNG.png">
+                                        <div class="col text-center">
+                                            <h3 class="card-title mb-3"id="title"th:text="${ticketB.maskapai}"></h3>
+                                            <div th:if="${ticketB.maskapai == 'Pahala Kencana'}">
+                                                <img src="/image/pahala-kencana-logo.png">
+                                            </div>
+                                            <div th:if="${ticketB.maskapai == 'Lorena'}">
+                                                <img src="/image/LOGO-LORENA-PNG.png">
+                                            </div>
+                                            <div th:if="${ticketB.maskapai == 'Agramas'}">
+                                                <img src="/image/Logo-agramas.png">
+                                            </div>
+                                            <h4 style="margin-bottom:1rem;margin-top:2rem;"><span th:text="${ticketB.harga}"></span></h4>
                                         </div>
-                                        <div th:if="${ticketB.maskapai == 'Agramas'}">
-                                            <img src="/image/Logo-agramas.png">
-                                        </div>
-                                        <h4 style="margin-bottom:1rem;margin-top:2rem;"><span th:text="${ticketB.harga}"></span><p>/pax</p></h4>
                                     </div>
                                 </div>
                             </div>
+                            
+                        </div> 
                     </div>
         </div>
     </body>
