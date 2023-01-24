@@ -190,7 +190,6 @@ public class SidinTravelController {
         if (param1.equals("bus")) {
             dataRes.setidCode(2);
             dataRes.setidTiket(Integer.parseInt(param2));
-            System.out.println("SIU");
         } else if (param1.equals("kereta")) {
             dataRes.setidCode(1);
             dataRes.setidTiket(Integer.parseInt(param2));
@@ -207,19 +206,28 @@ public class SidinTravelController {
         ArrayList<dataTiketbus> tempBus = new ArrayList<>();
         ArrayList<dataTiketkereta> tempKereta = new ArrayList<>();
         ArrayList<dataTiketpesawat> tempPesawat = new ArrayList<>();
-        for(int i=0;i < bookData.getSize();i++){
+        ArrayList<datareservasi> tempReservasiBus = new ArrayList<>();
+        ArrayList<datareservasi> tempReservasiKereta = new ArrayList<>();
+        ArrayList<datareservasi> tempReservasiPesawat = new ArrayList<>();
+        for (int i = 0; i < bookData.getSize(); i++) {
             Integer tempidCode = bookData.showBooking().get(i).getidCode();
-            if(tempidCode == 2){
+            if (tempidCode == 2) {
                 tempBus.add(dataTiket.showBuyBis(bookData.showBooking().get(i).getidTiket()));
-            }else if(tempidCode == 1){
+                tempReservasiBus.add(bookData.showBuyBookingBus(bookData.showBooking().get(i).getidTiket()));
+            } else if (tempidCode == 1) {
                 tempKereta.add(dataTiket.showBuyKereta(bookData.showBooking().get(i).getidTiket()));
-            }else if(tempidCode == 0){
+                tempReservasiKereta.add(bookData.showBuyBookingKereta(bookData.showBooking().get(i).getidTiket()));
+            } else if (tempidCode == 0) {
                 tempPesawat.add(dataTiket.showBuyPesawat(bookData.showBooking().get(i).getidTiket()));
+                tempReservasiPesawat.add(bookData.showBuyBookingPesawat(bookData.showBooking().get(i).getidTiket()));
             }
         }
         model.addAttribute("tempBus", tempBus);
+        model.addAttribute("tempBookingBus", tempReservasiBus);
         model.addAttribute("tempKereta", tempKereta);
+        model.addAttribute("tempBookingKereta", tempReservasiKereta);
         model.addAttribute("tempPesawat", tempPesawat);
+        model.addAttribute("tempBookingPesawat", tempReservasiPesawat);
         return "mybook";
     }
 
