@@ -13,7 +13,7 @@ public class userData {
     protected String username;
     protected String email;
     protected String password;
-    protected Boolean isLogin = true;
+    protected Boolean isLogin = false;
     protected Boolean isAdmin = false;
     protected String tempEmail;
 
