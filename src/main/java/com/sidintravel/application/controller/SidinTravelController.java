@@ -144,7 +144,6 @@ public class SidinTravelController {
     @GetMapping("viewticket/{param}")
     public String ticketView(@PathVariable("param") String param, Model model) {
         Boolean isLogin = dataUser.checkisLogin();
-        // Boolean isNew = dataUser.checkisNeW();
         if (!isLogin) {
             return "error";
         }
@@ -167,6 +166,11 @@ public class SidinTravelController {
     @GetMapping("/buyticket/{param1}/{param2}")
     public String buyTicketget(@PathVariable("param1") String param1, @PathVariable("param2") String param2,
             datareservasi dataRes, Model model) {
+        Boolean isLogin = dataUser.checkisLogin();
+        if (!isLogin) {
+            return "error";
+        }
+
         model.addAttribute("newBuy", new datareservasi("", 0, 0, 0));
         model.addAttribute("param1", param1);
         model.addAttribute("param2", param2);
@@ -203,6 +207,11 @@ public class SidinTravelController {
 
     @GetMapping("/myBooking")
     public String myBooking(Model model) {
+        Boolean isLogin = dataUser.checkisLogin();
+        if (!isLogin) {
+            return "error";
+        }
+
         ArrayList<dataTiketbus> tempBus = new ArrayList<>();
         ArrayList<dataTiketkereta> tempKereta = new ArrayList<>();
         ArrayList<dataTiketpesawat> tempPesawat = new ArrayList<>();
