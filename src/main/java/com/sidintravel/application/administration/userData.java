@@ -84,6 +84,13 @@ public class userData {
         isLogin = false;
         return false;
     }
+        // check untuk user admin
+    public boolean check(String password) {
+        if (password.equals("123")) {
+            return true;
+        }
+        return false;
+    }
 
     public String getPassword(String email) {
         tempEmail = email;
@@ -93,14 +100,6 @@ public class userData {
             }
         }
         return null;
-    }
-
-    // check untuk user admin
-    public boolean check(String password) {
-        if (password.equals("123")) {
-            return true;
-        }
-        return false;
     }
 
     public boolean getisAdmin() {
